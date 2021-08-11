@@ -18,7 +18,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = job.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   def new
@@ -32,7 +32,7 @@ class JobsController < ApplicationController
     @job.organisation = @organisation
     @job.user = current_user
     if @job.save
-      redirect_to jobs_path
+      redirect_to employer_dashboard_path
     else
       render :new
     end
@@ -45,13 +45,13 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     @job = Job.update(job_params)
-    redirect_to jobs_path
+    redirect_to employer_dashboard_path
   end
 
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to jobs_path
+    redirect_to employer_dashboard_path
   end
 
   private

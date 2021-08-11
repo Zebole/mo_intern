@@ -16,10 +16,8 @@
     <li><%= job.organisations.city %></li>
     <li><%= job.organisations.city %></li>
     <li><%= job.description.truncate_words(4) %></li>
-    <li> <%=job.category%></li>
+    <li><%= job.category%></li>
     <li><%= link_ to “👉 Apply”, new_application_path%></li>
     <li><%= link_ to “🔍 View”, job_path%></li>
   <% end %>
 </ul>
-
-<!--  <%= link_ to "Post a job", new_organisation_job_path[:organisation_id]%>-->

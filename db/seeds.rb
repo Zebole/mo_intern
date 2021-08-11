@@ -7,10 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning up database"
 UserQualification.destroy_all
-puts "Hello there"
 Qualification.destroy_all
 User.destroy_all
-puts "Hi again"
+Organisation.destroy_all
 
 tiago = User.create!(first_name: "Tiago", last_name: "Clarenc", email:"tiago.c@email.com", password:"123456", role: "Applicant", address: "123, Coastal Rd", city: "Grand-Baie", phone_number: "58986517", date_of_birth: Date.parse('2001-02-03'), previous_experience: "3 months internship in digital marketing")
 alex = User.create(first_name: "Alex", last_name: "Adam", email:"alex.a@email.com", password:"123456", role: "Applicant", address: "114, Royal Rd", city: "Curepipe", phone_number: "58306680", date_of_birth: Date.parse('2000-03-11'), previous_experience: "1 months internship in finance")
@@ -35,6 +34,9 @@ profile3 = UserQualification.create(qualification: marketing, user: robert)
 profile4 = UserQualification.create(qualification: french, user: lisa)
 profile5 = UserQualification.create(qualification: management, user: marie)
 
-p tiago.first_name
-p alex.qualification
-p profile5.qualification
+KPMG = Organisation.create(name: "KPMG" address: "3 Street Labourdonais" city: "Port-Louis" phone_number: 4135577 email: "kpmg@kpmg.com" website: "kpmg.com" description: "work with the best" user: tiago)
+Deloitte = Organisation.create(name: "Deloitte" address: "33 Street Labourdonais" city: "Port-Louis" phone_number: 4133677 email: "deloitte@deloitte.com" website: "deloitte.com" description: "work with the best"  user: alex)
+SBM = Organisation.create(name: "SBM" address: "13 Street Labourdonais" city: "Ebene" phone_number: 4135687 email: "sbm@sbm.com" website: "sbm.com" description: "work with the best"  user: robert)
+MCB = Organisation.create(name: "MCB" address: "25 Street Labourdonais" city: "Port-Louis" phone_number: 4135688 email: "mcb@mcb.com" website: "mcb.com" description: "work with the best"  user: lisa)
+IBL =  Organisation.create(name: "IBL" address: "34 Street Labourdonais" city: "Moka" phone_number: 4135617 email: "ibl@ibl.com" website: "ibl.com" description: "work with the best"  user: marie)
+
