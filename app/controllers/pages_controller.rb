@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   # end
 
   def employer_dashboard
-
+    @my_jobs = current_user.jobs
   end
 
   def applicant_dashboard
