@@ -17,7 +17,7 @@
       <li><%= job.organisation.city %></li>
       <li><%= job.description.truncate_words(4) %></li>
       <li><%= job.category%></li>
-      <li><%= link_to "👉 Apply", new_application_path%></li>
+      <li><%= link_to "👉 Apply", new_application_path(job_id: job.id)%></li>
       <li><%= link_to "🔍 View", job_path(job) %></li>
     <% end %>
   </ul>
