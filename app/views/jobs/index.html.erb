@@ -1,23 +1,24 @@
-<%= form_tag jobs_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a job"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<h2> Your Job Lists</h2>
-
-<ul>
-  <% @jobs.each do |job|  %>
-    <li><%= job.title %></li>
-    <li><%= job.organisation.name %></li>
-    <li><%= job.organisations.city %></li>
-    <li><%= job.organisations.city %></li>
-    <li><%= job.description.truncate_words(4) %></li>
-    <li><%= job.category%></li>
-    <li><%= link_ to “👉 Apply”, new_application_path%></li>
-    <li><%= link_ to “🔍 View”, job_path%></li>
+<div class="container">
+  <%= form_tag jobs_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a job"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-</ul>
+
+  <h2> Your Job Lists</h2>
+
+  <ul>
+    <% @jobs.each do |job|  %>
+      <li><%= job.title %></li>
+      <li><%= job.organisation.name %></li>
+      <li><%= job.organisation.city %></li>
+      <li><%= job.description.truncate_words(4) %></li>
+      <li><%= job.category%></li>
+      <li><%= link_to "👉 Apply", new_application_path%></li>
+      <li><%= link_to "🔍 View", job_path(job) %></li>
+    <% end %>
+  </ul>
+</div>

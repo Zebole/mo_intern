@@ -1,1 +1,19 @@
-
+<div class="container">
+  <div>
+    <h3>Applied</h3>
+    <%= @your_count %>
+  </div>
+  <ul class="list-dashboard">
+    <% @your_applications.each do |application| %>
+      <li><%= application.job.title %></li>
+      <li><%= application.job.description.truncate_words(4) %></li>
+      <li><%= application.job.category %></li>
+      <!-- book an interview -->
+      <li><%= application.status %></li>
+    <% end %>
+  </ul>
+  <div class="footer">
+    <p>Privacy Policy</p>
+    <p>About us</p>
+  </div>
+</div>
