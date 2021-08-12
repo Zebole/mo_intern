@@ -8,6 +8,7 @@
 puts "Cleaning up database"
 UserQualification.destroy_all
 Qualification.destroy_all
+Job.destroy_all
 Organisation.destroy_all
 User.destroy_all
 
