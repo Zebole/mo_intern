@@ -12,35 +12,27 @@
       <li><%= application.status %></li>
     <% end %>
   </ul>
-  <div class="footer">
-    <p>Privacy Policy</p>
-    <p>About us</p>
-  </div>
 </div>
 
 
 
 <div class="container">
   <div>
-    <h3>Applied</h3>
-    <%= @your_count %>
+    <h3>Your qualifications</h3>
   </div>
-  <ul class="list-dashboard">
-    <% @your_applications.each do |application| %>
-      <li><%= application.job.title %></li>
-      <li><%= application.job.description.truncate_words(4) %></li>
-      <li><%= application.job.category %></li>
-      <!-- book an interview -->
-      <li><%= application.status %></li>
-    <% end %>
-  </ul>
-  <div class="footer">
-    <p>Privacy Policy</p>
-    <p>About us</p>
-  </div>
+
+    <ul class="list-dashboard">
+      <% @user_qualifications.each do |qualification| %>
+        <li><%= qualification.qualification_category %> <%= qualification.qualification_value %></li>
+      <% end %>
+    </ul>
+    <%= link_to "Add a qualification", new_user_qualification_path %>
 </div>
 
+<br>
+<br>
 
-
-
-<%= link_to "Add a qualification", new_user_qualification_path %>
+<div class="footer">
+    <p>Privacy Policy</p>
+    <p>About us</p>
+</div>
