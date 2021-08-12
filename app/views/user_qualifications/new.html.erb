@@ -4,7 +4,7 @@
   <%= simple_form_for @user_qualification do |f| %>
     <%= f.input :qualification,
                 as: :select,
-                collection: Qualification.to_s  %>
+                collection: Qualification.labels  %>
     <%= f.button :submit, class: "btn btn-sm btn-outline-primary" %>
   <% end %>
 </div>

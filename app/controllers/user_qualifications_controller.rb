@@ -5,12 +5,9 @@ class UserQualificationsController < ApplicationController
   end
 
   def create
-    qualification = Qualification.first
-    # qualification = Qualification.find_instance(params[:user_qualification][:qualification])
-    # u = UserQualification.new(user: current_user)
-    # u.qualification_id = qualification.id
-    # u.save!
-    raise
+    qualification = Qualification.find_instance(params[:user_qualification][:qualification])
+    UserQualification.create(user: current_user, qualification: qualification)
+    redirect_to applicant_dashboard_path
   end
 
 end

@@ -3,7 +3,7 @@ class Qualification < ApplicationRecord
 
   private
 
-  def self.to_s
+  def self.labels
     self.all.map {|qualification| "#{qualification.qualification_category} - #{qualification.qualification_value}" }
   end
 
