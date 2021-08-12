@@ -11,8 +11,7 @@
   </div>
   <div class="buttons-flat">
     <ul>
-      <li><%= link_to "Post a job", new_organisation_job_path(organisation) %></li>
-      <li><%= link_to "Delete a job", job_path(job), method: :delete, data: { confirm: "Are you sure?" }%></li>
+      <li><%= link_to "Post a job", new_organisation_job_path(current_user.organisation) %></li>
     </ul>
   </div>
   <ul class="list-dashboard">
@@ -20,7 +19,8 @@
       <li><%= application.title %></li>
       <li><%= application.description.truncate_words(4) %></li>
       <li><%= application.category %></li>
-      <li><%= link_to "View job" , job_path(job) %></li>
+      <li><%= link_to "View job" , job_path(application) %></li>
+      <li><%= link_to "Delete a job", job_path(application), method: :delete, data: { confirm: "Are you sure?" }%></li>
       <!-- list applicants -->
     <% end %>
   </ul>
