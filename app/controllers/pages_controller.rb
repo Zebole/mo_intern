@@ -18,5 +18,6 @@ class PagesController < ApplicationController
   def applicant_dashboard
     @your_applications = current_user.applications
     @your_count = current_user.applications.count
+    @user_qualifications = current_user.qualifications
   end
 end
