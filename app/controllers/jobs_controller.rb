@@ -3,13 +3,12 @@ class JobsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = " \
-      jobs.title @@ :query \
-      OR jobs.salary @@ :query \
-      OR jobs.duration @@ :query \
+      jobs.duration @@ :query \
       OR jobs.category @@ :query \
       OR jobs.deadline @@ :query \
       OR organisations.name @@ :query \
       OR organisations.city @@ :query \
+      OR jobs.title @@ :query \
       "
       @jobs = Job.joins(:organisation).where(sql_query, query: "%#{params[:query]}%")
     else

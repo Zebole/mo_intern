@@ -9,9 +9,9 @@
   </div>
   <div class="text-simple">
     <p>About</p>
-    <p><%= @organisation.description %></p>
+    <p><%= @job.organisation.description %></p>
     <!-- Add image of company using cloudinary-->
-    <%= link_to "Learn more about #{@organisation.name}", organisation_path(organisation) %>
+    <%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation) %>
     <p>Job Description</p>
     <p><%= @job.description %></p>
   </div>
