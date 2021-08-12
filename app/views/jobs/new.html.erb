@@ -1,12 +1,13 @@
 <div class="container">
   <h2>Create a job</h2>
-  <%= simple_form_for @job do |f| %>
-    <%= f.input :title, placeholder:Enter your job title %>
-    <%= f.input :description, placeholder:Enter your job description%>
-    <%= f.input :salary, placeholder:Enter your salary%>
-    <%= f.input :duration, placeholder:Enter your duration%>
-    <%= f.input :category, placeholder:Enter your category%>
-    <%= f.input :deadline, placeholder:Enter your deadline%>
+  <%= simple_form_for [@organisation,@job] do |f| %>
+    <%= f.input :title, placeholder: "Enter your job title" %>
+    <%= f.input :description, placeholder: "Enter your job description"%>
+    <%= f.input :salary, placeholder: "Enter your salary"%>
+    <%= f.input :duration, placeholder: "Enter your duration"%>
+    <%= f.input :category, placeholder: "Enter your category"%>
+    <%= f.input :deadline, placeholder: "Enter your deadline"%>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit, class: "btn btn-sm btn-outline-primary" %>
   <% end %>
 </div>

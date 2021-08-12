@@ -29,7 +29,6 @@ class JobsController < ApplicationController
     @organisation = Organisation.find(params[:organisation_id])
     @job = Job.new(job_params)
     @job.organisation = @organisation
-    @job.user = current_user
     if @job.save
       redirect_to employer_dashboard_path
     else
@@ -56,6 +55,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :salary, :duration, :category, :deadline)
+    params.require(:job).permit(:title, :description, :salary, :duration, :category, :deadline, :photo)
   end
 end
