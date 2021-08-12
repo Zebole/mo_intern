@@ -1,0 +1,15 @@
+<div class="container">
+  <h1><%= @organisation.name %></h1>
+  <%= @organisation.address %><br>
+  <%= @organisation.city %><br>
+  <%= @organisation.phone_number %><br>
+  <%= @organisation.email %><br>
+  <%= link_to @organisation.website, "http://#{@organisation.website}" %><br><br>
+  <%= @organisation.description %><br><br>
+
+  <%= link_to "Edit this organisation", edit_organisation_path(@organisation) %>
+  <br>
+  <%#= link_to "Destroy", organisation_path(@organisation), method: :delete, data: { confirm: "Are you sure?" } %>
+  <br>
+  <%= link_to "Back to Organisations", organisations_path %>
+</div>
