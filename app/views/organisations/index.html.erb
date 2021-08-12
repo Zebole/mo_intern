@@ -1,12 +1,23 @@
-<h1>All organisations</h1>
-<div class="container">
-  <ul style = "list:none;">
-    <% @organisations.each do |organisation| %>
-      <li>
-        <%= link_to organisation.name,organisation_path(organisation) %>
-      </li>
-    <% end %>
-  </ul> 
+<h1>Organisations#index</h1>
 
-  <%= link_to "Create an organisation", new_organisation_path %>
+<%= link_to "Create an organisation", new_organisation_path %>
+
+<div class="container mt-3" style="width:900px;">
+  <!--<ul>-->
+  <div class="card-grid">
+    <% @organisations.each do |organisation| %>
+      <!--<li>-->
+         <div class="card">
+         <%#= image_tag "avatar_placeholder.jpg", class: "avatar avatar-xs", data: { titi: "toto" } %>
+            <img src="sbm-logo.png") class="card-img-top" >
+              <div class="card-body">
+                <p class="card-text">
+                  <%#= link_to organisation.description,organisation_path(organisation) %>
+                 <%= organisation.description[0..150]  %>
+                </p>
+             </div>
+         </div>
+       <!--</li>-->
+    <% end %>
+  <!--</ul>--> 
 </div>
