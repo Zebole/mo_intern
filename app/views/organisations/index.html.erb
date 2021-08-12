@@ -1,0 +1,12 @@
+<h1>All organisations</h1>
+<div class="container">
+  <ul style = "list:none;">
+    <% @organisations.each do |organisation| %>
+      <li>
+        <%= link_to organisation.name,organisation_path(organisation) %>
+      </li>
+    <% end %>
+  </ul> 
+
+  <%= link_to "Create an organisation", new_organisation_path %>
+</div>
