@@ -1,6 +1,6 @@
 <div class="container">
   <div class="image-square">
-    <!-- Add image of intern using cloudinary-->
+    <%= image_tag "back.jpeg", width: 200 %>
     <h1><%= @job.title %></h1>
     <h3><p>Category: </p><%= @job.category %></h3>
     <h3><p>Deadline: </p><%= @job.deadline %></h3>
@@ -11,6 +11,7 @@
     <p>About</p>
     <p><%= @job.organisation.description %></p>
     <!-- Add image of company using cloudinary-->
+    <%= cl_image_tag @job.photo.key, height: 300, width: 400, crop: :fill %>
     <%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation) %>
     <p>Job Description</p>
     <p><%= @job.description %></p>

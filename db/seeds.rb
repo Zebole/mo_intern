@@ -2,7 +2,7 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
+require "open-uri"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning up database"
@@ -11,7 +11,6 @@ Qualification.destroy_all
 Job.destroy_all
 Organisation.destroy_all
 User.destroy_all
-
 
 tiago = User.create!(first_name: "Tiago", last_name: "Clarenc", email:"tiago.c@email.com", password:"123456", role: "Applicant", address: "123, Coastal Rd", city: "Grand-Baie", phone_number: "58986517", date_of_birth: Date.parse('2001-02-03'), previous_experience: "3 months internship in digital marketing")
 alex = User.create(first_name: "Alex", last_name: "Adam", email:"alex.a@email.com", password:"123456", role: "Applicant", address: "114, Royal Rd", city: "Curepipe", phone_number: "58306680", date_of_birth: Date.parse('2000-03-11'), previous_experience: "1 months internship in finance")
@@ -45,9 +44,11 @@ New
 IBL aims to work ethically and with integrity everywhere we operate and invest. Our purpose is to create a brighter, more sustainable world.
 Our values are the bedrock of our ambitious yet principled culture. They shape how we do business, govern our group and interact with our stakeholders – from our people and partners to the communities in which we work.",  user: marie)
 
+file = URI.open('https://zenprospect-production.s3.amazonaws.com/uploads/pictures/60f53ecb5745680001848a97/picture')
 Finance_Internship = Job.create(title:"Finance Intern", description:"We are looking for a high energy, results-driven, team-oriented Finance Intern to join our rapidly growing Finance Team!
 In this role, you will have the great challenge of optimizing the cash collection process.
 In this role, you will be in charge of the dunning receivables, communicating with our clients worldwide, closely monitoring cash collection KPI and improving them. It is a fast-paced role that fits high energy and agile people who like challenges.", salary:25000 , duration: "1 May 2022 - 31 August 2022", organisation: KPMG, category: "Finance", deadline: "15 April 2022")
+Finance_Internship.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 Marketing_Internship = Job.create(title:"Marketing Intern", description:"We are looking for talented people who are willing to build the most amazing rewards experience for consumers while keeping growing their own skills and expertise.
 As Marketing & Communication intern, you will be the taking an important part of our brand and communication across all channels. You will report to the Brand & Communication Manager and you will contribute significantly in driving the company’s success by building and growing a best-in-class brand.
 Your responsibilities:
