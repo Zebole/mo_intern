@@ -1,28 +1,35 @@
 <div class="container">
   <div class="image-square">
-    <%= image_tag "back.jpg", width: 200 %>
-    <h1><%= @job.title %></h1>
-    <h3><p>Category: </p><%= @job.category %></h3>
-    <h3><p>Deadline: </p><%= @job.deadline %></h3>
-    <h3><p>Duration: </p><%= @job.duration %></h3>
-    <h3><p>Rs </p><%= @job.salary %><p>/month</p></h3>
+    <h1 class="big"><%= @job.title %></h1>
+    <div class="title d-flex justify-content-between">
+      <h3>Category: <%= @job.category %></h3>
+      <h3>Deadline: <%= @job.deadline %></h3>
+      <h3>Duration: <%= @job.duration %></h3>
+      <h3>Salary: Rs <%= @job.salary %>/month</h3>
+    </div>
   </div>
   <div class="text-simple">
-    <p>About</p>
+    <p><span class="about">About</span></p>
     <p><%= @job.organisation.description %></p>
     <!-- Add image of company using cloudinary-->
-    <% if @job.photo.attached? %>
-      <%= cl_image_tag @job.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-     <%= image_tag 'great.png', height: 300 %>
-    <% end %>
-    <%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation) %>
-    <p>Job Description</p>
+    <div class="photo d-flex justify-content-center my-4">
+      <% if @job.photo.attached? %>
+        <%= cl_image_tag @job.photo.key, height: 300, width: 400, crop: :fill, class: "border border-light rounded" %>
+      <% else %>
+       <%= image_tag 'great.png', height: 300 %>
+      <% end %>
+    </div>
+    <span class="link btn btn-light text-decoration-none"><%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation) %></span>
+    <p><span class="about">Job Description</span></p>
     <p><%= @job.description %></p>
   </div>
-  <%= link_to "Apply", new_application_path(job_id: @job.id) %>
-  <%= link_to "Back to job listings", jobs_path %>
-  <div class="footer">
+  <div class="linking btn btn-light text-decoration-none">
+    <%= link_to "Apply", new_application_path(job_id: @job.id) %>
+  </div>
+  <div class="link btn btn-light text-decoration-none">
+    <%= link_to "Back to job listings", jobs_path %>
+  </div>
+  <div class="footer d-flex justify-content-between">
     <p>Privacy Policy</p>
     <p>About us</p>
   </div>

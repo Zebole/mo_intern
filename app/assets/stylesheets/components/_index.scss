@@ -5,6 +5,9 @@
 @import "form";
 @import "card";
 @import "jobcard";
+@import "h2";
+@import "showbanner";
+@import "text";
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

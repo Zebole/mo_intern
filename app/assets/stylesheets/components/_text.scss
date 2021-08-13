@@ -1,0 +1,27 @@
+.text-simple {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  line-height: 1.7;
+}
+
+.about {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  background: linear-gradient(
+180deg
+, rgba(255,255,255,0), rgba(255,255,255,0) 59%, rgba(70,73,227,0.1) 60%, rgba(70,73,227,0.1));
+}
+
+.link {
+  margin-left: 445px;
+  margin-bottom: 10px;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+
+.linking {
+  margin-left: 491px;
+  margin-bottom: 18px;
+}
