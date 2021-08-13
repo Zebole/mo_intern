@@ -24,7 +24,7 @@
               <div class="card-body">
                 <p class="card-text">
                  <%= organisation.description[0..160]  %>
-                 <%#= link_to organisation_path(organisation) %>
+                 <%= link_to "View", organisation_path(organisation), class: "btn btn-primary" %>
 
                 </p>
              </div>
