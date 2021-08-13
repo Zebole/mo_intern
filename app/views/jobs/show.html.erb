@@ -11,13 +11,17 @@
     <p>About</p>
     <p><%= @job.organisation.description %></p>
     <!-- Add image of company using cloudinary-->
-    <%= cl_image_tag @job.photo.key, height: 300, width: 400, crop: :fill %>
+    <% if @job.photo.attached? %>
+      <%= cl_image_tag @job.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+     <%= image_tag 'great.png', height: 300 %>
+    <% end %>
     <%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation) %>
     <p>Job Description</p>
     <p><%= @job.description %></p>
   </div>
-  <%= link_to "Apply", new_application_path %>
-  <%= link_to "Back to job listings", organisations_path %>
+  <%= link_to "Apply", new_application_path(job_id: job.id) %>
+  <%= link_to "Back to job listings", jobs_path %>
   <div class="footer">
     <p>Privacy Policy</p>
     <p>About us</p>

@@ -1,6 +1,17 @@
-<h1>Organisations#index</h1>
 
-<%= link_to "Create an organisation", new_organisation_path %>
+<div class="container">
+
+<div class="container" style="background-color: rgb(117, 194, 246);">
+
+   <%= form_tag organisations_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find the tribe you belong to"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="container mt-3" style="width:900px;">
   <!--<ul>-->
@@ -12,12 +23,21 @@
             <img src="sbm-logo.png") class="card-img-top" >
               <div class="card-body">
                 <p class="card-text">
-                  <%#= link_to organisation.description,organisation_path(organisation) %>
-                 <%= organisation.description[0..150]  %>
+                 <%= organisation.description[0..160]  %>
+                 <%= link_to organisation_path(organisation), class: "btn btn-small" %>
+
                 </p>
              </div>
          </div>
        <!--</li>-->
     <% end %>
   <!--</ul>--> 
+
+  <%= link_to "Create an organisation", new_organisation_path %>
+
 </div>
+
+</div>
+
+
+
