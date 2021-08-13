@@ -3,6 +3,9 @@
     <h3>Applied</h3>
     <%= @your_count %>
   </div>
+  <div class="button-list">
+    <%= link_to "View all internships" , jobs_path %>
+  </div>
   <ul class="list-dashboard">
     <% @your_applications.each do |application| %>
       <li><%= application.job.title %></li>
