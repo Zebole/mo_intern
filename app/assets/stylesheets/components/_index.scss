@@ -8,15 +8,5 @@
 @import "h2";
 @import "showbanner";
 @import "text";
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-}
+@import "banner";
 
-.truncate {
-  width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
