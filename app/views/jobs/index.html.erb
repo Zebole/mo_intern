@@ -1,14 +1,19 @@
 <div class="container">
-  <%= form_tag jobs_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a job"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-
-  <h2> Your Job Lists</h2>
+  <div class="search-bar">
+    <%= form_tag jobs_path, method: :get do %>
+    <div class="d-flex">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a job"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+  <div>
+    <h2 class="h2-flat"> All Jobs</h2>
+  </div>
 
   <!-- <ul class="cards-job">
     <% @jobs.each do |job|  %>
