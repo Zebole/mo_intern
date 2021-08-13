@@ -1,13 +1,31 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner1.jpg" %>);">
-  <div class="container d-flex justify-content-between">
+  <div class="container">
     <h1>Your <strong>internship</strong> is <strong>one click away</strong>!</h1>
+    <br>
     <p>Join our community to explore internships from more than 1000 companies!</p>
-    </div>
-    <div class="container d-flex justify-content-between">
+    <br>
     <a class="btn btn-flat" href="#">Explore Internships</a>
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+<h2 class="home-h2">Explore Jobs</h2>
+<br>
+  <% @jobs.first(3).each do |job|  %>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <h5><%= job.organisation.name%></h5>
+      <h5><%= job.organisation.city %></h5>
     </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= job.title %></h5>
+      <p class="card-text"><%= job.description.truncate_words(30)%></p>
+      <%= link_to "👉 Apply", new_application_path(job_id: job.id), class: "btn btn-primary" %>
+      <%= link_to "🔍 View", job_path(job), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
 </div>
 
-
 <%= link_to "employer dashboard", employer_dashboard_path %>
-
