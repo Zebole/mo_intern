@@ -1,11 +1,19 @@
 <div class="container">
   <h1><%= @organisation.name %></h1>
+  <div class="photo-flat">
+    <% if @organisation.photo.attached? %>
+      <%= cl_image_tag @organisation.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag 'great.png', height: 300 %>
+    <% end %>
+  </div>
   <%= @organisation.address %><br>
   <%= @organisation.city %><br>
   <%= @organisation.phone_number %><br>
   <%= @organisation.email %><br>
   <%= link_to @organisation.website, "http://#{@organisation.website}" %><br><br>
   <%= @organisation.description %><br><br>
+
 
   <%= link_to "Edit this organisation", edit_organisation_path(@organisation) %>
   <br>
