@@ -1,12 +1,43 @@
-<h1>All organisations</h1>
+
 <div class="container">
-  <ul style = "list:none;">
+
+<div class="container" style="background-color: rgb(117, 194, 246);">
+
+   <%= form_tag organisations_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find the tribe you belong to"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<div class="container mt-3" style="width:900px;">
+  <!--<ul>-->
+  <div class="card-grid">
     <% @organisations.each do |organisation| %>
-      <li>
-        <%= link_to organisation.name,organisation_path(organisation) %>
-      </li>
+      <!--<li>-->
+         <div class="card">
+         <%#= image_tag "avatar_placeholder.jpg", class: "avatar avatar-xs", data: { titi: "toto" } %>
+            <img src="sbm-logo.png") class="card-img-top" >
+              <div class="card-body">
+                <p class="card-text">
+                 <%= organisation.description[0..160]  %>
+                 <%#= link_to organisation_path(organisation) %>
+
+                </p>
+             </div>
+         </div>
+       <!--</li>-->
     <% end %>
-  </ul> 
+  <!--</ul>--> 
 
   <%= link_to "Create an organisation", new_organisation_path %>
+
 </div>
+
+</div>
+
+
+
