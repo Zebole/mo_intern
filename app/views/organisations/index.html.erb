@@ -1,43 +1,43 @@
 
 <div class="container">
 
-<div class="container" style="background-color: rgb(117, 194, 246);">
-
-   <%= form_tag organisations_path, method: :get do %>
-    <%= text_field_tag :query,
+  <div class="container d-flex align-items-center mt-1 mb-5" style="height:100px; border-radius:6px; background-color: rgb(255, 233, 129);">
+     <div>
+      <%= form_tag organisations_path, method: :get do %>
+      <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+     style: "width: 900px; border-radius:6px; border:1px;",
       placeholder: "Find the tribe you belong to"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
+      %>
+    </div>
+    <div>
+      <%= submit_tag "Search", class: "px-5 btn btn-primary btn-sm" %>
+      <% end %>
+    </div>  
+  </div>
 
-<div class="container mt-3" style="width:900px;">
-  <!--<ul>-->
-  <div class="card-grid">
-    <% @organisations.each do |organisation| %>
+  <div class="container d-flex mt-3" style="width:900px;">
+    <div class="card-grid">
+      <% @organisations.each do |organisation| %>
       <!--<li>-->
-         <div class="card">
-         <%#= image_tag "avatar_placeholder.jpg", class: "avatar avatar-xs", data: { titi: "toto" } %>
-            <img src="sbm-logo.png") class="card-img-top" >
+        <div class="card" style="width:300px; height:500px;" >
+          <%= image_tag 'great.png', height: 200, class: "card-img-top" %>
+          <!-- <% if organisation.photo.attached? %>
+             <%#= cl_image_tag organisation.photo.key, height: 200, width: 200, crop: :fill %>
+           <% else %>
+             <%#= image_tag 'great.png', height: 200, class: "card-img-top" %>
+           <% end %>-->
               <div class="card-body">
-                <p class="card-text">
-                 <%= organisation.description[0..160]  %>
-                 <%= link_to "View", organisation_path(organisation), class: "btn btn-primary" %>
-
-                </p>
+                 <p class="card-text truncate-text"">
+                   <%= organisation.description %><br>
+                 </p>
+                <%= link_to "View", organisation_path(organisation), class: "text-center btn btn-primary btn-sm mt-2", style: "width:250px;" %>
              </div>
          </div>
-       <!--</li>-->
-    <% end %>
-  <!--</ul>--> 
-
-  <%= link_to "Create an organisation", new_organisation_path %>
-
+      <% end %>
+   </div>
+ </div>
+ <div class="text-right">
+   <%= link_to "Create organisation", new_organisation_path, class: "btn btn-primary btn-sm mt-2" %>
+ </div>
 </div>
-
-</div>
-
-
-
