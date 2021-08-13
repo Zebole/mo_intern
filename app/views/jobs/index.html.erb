@@ -10,7 +10,7 @@
 
   <h2> Your Job Lists</h2>
 
-  <ul>
+  <!-- <ul class="cards-job">
     <% @jobs.each do |job|  %>
       <li><%= job.title %></li>
       <li><%= job.organisation.name %></li>
@@ -21,4 +21,20 @@
       <li><%= link_to "🔍 View", job_path(job) %></li>
     <% end %>
   </ul>
+</div> -->
+
+  <% @jobs.each do |job|  %>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <h5><%= job.organisation.name%></h5>
+      <h5><%= job.organisation.city %></h5>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= job.title %></h5>
+      <p class="card-text"><%= job.description.truncate_words(30)%></p>
+      <%= link_to "👉 Apply", new_application_path(job_id: job.id), class: "btn btn-primary" %>
+      <%= link_to "🔍 View", job_path(job), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
 </div>
