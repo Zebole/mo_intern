@@ -21,11 +21,11 @@
  </div>
 
   <div class="text-right">
-   <button type="button" class="btn btn-primary">
-    <!--<% if current_user.role != 'Applicant' %>-->
-       <%= link_to "Edit", edit_organisation_path(@organisation), style: "color: white;" %>
-    <!--<% end %>-->   
-   </button>
+   <% if @organisation.user === current_user   %>
+     <button type="button" class="btn btn-primary">
+      <%= link_to "Edit", edit_organisation_path(@organisation), style: "color: white;" %>
+     </button>
+   <% end %>   
 	 <button type="button" class="btn btn-primary">
     <%= link_to "Back", organisations_path, style: "color: white; text-decoration: none;" %>
    </button>
