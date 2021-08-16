@@ -24,7 +24,7 @@
     <p><%= @job.description %></p>
   </div>
   <div class="linking btn btn-light text-decoration-none">
-    <%= link_to "Apply", new_application_path(job_id: @job.id) %>
+    <%= link_to "Apply", applications_path(job_id: @job.id), method: :post %>
   </div>
   <div class="link btn btn-light text-decoration-none">
     <%= link_to "Back to job listings", jobs_path %>

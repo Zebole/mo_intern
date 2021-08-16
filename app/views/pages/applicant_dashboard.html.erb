@@ -3,21 +3,30 @@
     <h3>Applied</h3>
     <%= @your_count %>
   </div>
-  <div class="button-list">
-    <%= link_to "View all internships" , jobs_path %>
-  </div>
+
   <ul class="list-dashboard">
     <% @your_applications.each do |application| %>
-      <li><%= application.job.title %></li>
-      <li><%= application.job.description.truncate_words(4) %></li>
-      <li><%= application.job.category %></li>
-      <!-- book an interview -->
-      <li><%= application.status %></li>
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <h5><%= application.job.organisation.name%></h5>
+          <h5><%= application.job.organisation.city %></h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= application.job.title %></h5>
+          <p class="card-text"><%= application.job.duration %></p>
+          <p class="card-text"><%= application.job.description.truncate_words(30) %></p>
+          <!-- book an interview -->
+          <p class="card-text"><%= application.status %></p>
+        </div>
+      </div>
     <% end %>
   </ul>
+
+  <div class="button-list">
+    <%= link_to "Go back to internships", jobs_path %>
+  </div>
+
 </div>
-
-
 
 <div class="container">
   <div>
@@ -35,7 +44,7 @@
 <br>
 <br>
 
-<div class="footer">
+<div class="footer d-flex justify-content-between">
     <p>Privacy Policy</p>
     <p>About us</p>
-</div>
+  </div>

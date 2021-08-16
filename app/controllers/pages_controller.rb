@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @jobs = Job.all
     @organisations = Organisation.all
+    @applications = Application.all
   end
 
   # def dashboard
