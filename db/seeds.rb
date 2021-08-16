@@ -12,7 +12,7 @@ Job.destroy_all
 Organisation.destroy_all
 User.destroy_all
 
-tiago = User.create!(first_name: "Tiago", last_name: "Clarenc", email:"tiago.c@email.com", password:"123456", role: "Applicant", address: "123, Coastal Rd", city: "Grand-Baie", phone_number: "58986517", date_of_birth: Date.parse('2001-02-03'), previous_experience: "3 months internship in digital marketing")
+tiago = User.create!(first_name: "Tiago", last_name: "Clarenc", email:"tiago.c@email.com", password:"123456", role: "Organisation", address: "123, Coastal Rd", city: "Grand-Baie", phone_number: "58986517", date_of_birth: Date.parse('2001-02-03'), previous_experience: "3 months internship in digital marketing")
 alex = User.create(first_name: "Alex", last_name: "Adam", email:"alex.a@email.com", password:"123456", role: "Applicant", address: "114, Royal Rd", city: "Curepipe", phone_number: "58306680", date_of_birth: Date.parse('2000-03-11'), previous_experience: "1 months internship in finance")
 robert = User.create(first_name: "Robert", last_name: "Bouchet", email:"robert-bouchet@email.com", password:"123456", role: "Applicant", address: "14, Sottise Rd", city: "The Vale", phone_number: "52509086", date_of_birth: Date.parse('1999-01-01'), previous_experience: "Worked in retail for 3 weeks")
 lisa = User.create(first_name: "Lisa", last_name: "Schneider", email:"lisa.schneider@email.com", password:"123456", role: "Applicant", address: "45, Av. des Jacarandas", city: "Tamarin", phone_number: "54123867", date_of_birth: Date.parse('2002-06-28'), previous_experience: "Computer Science internship")

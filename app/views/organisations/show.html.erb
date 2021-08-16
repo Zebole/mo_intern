@@ -21,7 +21,7 @@
  </div>
 
   <div class="text-right">
-   <% if current_user.role != 'Applicant' %>
+   <% if @organisation.user === current_user   %>
      <button type="button" class="btn btn-primary">
       <%= link_to "Edit", edit_organisation_path(@organisation), style: "color: white;" %>
      </button>
