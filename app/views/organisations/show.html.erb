@@ -19,9 +19,12 @@
  <div class = "ml-2 text-align-justify" style="width:950px;">
    <%= @organisation.description %>
  </div>
- <div class="text-right">
+
+  <div class="text-right">
    <button type="button" class="btn btn-primary">
-    <%= link_to "Edit", edit_organisation_path(@organisation), style: "color: white;" %>
+    <!--<% if current_user.role != 'Applicant' %>-->
+       <%= link_to "Edit", edit_organisation_path(@organisation), style: "color: white;" %>
+    <!--<% end %>-->   
    </button>
 	 <button type="button" class="btn btn-primary">
     <%= link_to "Back", organisations_path, style: "color: white; text-decoration: none;" %>
@@ -29,4 +32,17 @@
     <%#= link_to "Destroy", organisation_path(@organisation), method: :delete, data: { confirm: "Are you sure?" } %>
   </div> 
 </div>
+
+ <div class="container mt-5">
+  <h2>Open jobs</h2><br>
+   <% @organisation.jobs.each do |job| %>
+    <h3>Job title:  <%= job.title %></h3><br>
+    Description: <%= job.description %><br>
+    Salary: <%= job.salary %> -
+    Duration: <%= job.duration %> - 
+    Category: <%= job.category %> - 
+    Closing date: <%= job.deadline %>
+   <% end %>  
+ </div>
+
 
