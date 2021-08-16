@@ -1,32 +1,29 @@
 <div class="container">
+  <br>
   <div>
-    <h3>Applied</h3>
-    <%= @your_count %>
+    <h4 style="text-align:center">You've applied to <strong><%= @your_count %></strong> internships</h4>
   </div>
 
-  <ul class="list-dashboard">
     <% @your_applications.each do |application| %>
       <div class="card">
         <div class="card-header d-flex justify-content-between">
           <h5><%= application.job.organisation.name%></h5>
-          <h5><%= application.job.organisation.city %></h5>
+          <h5><%= application.status %>Pending</h5>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= application.job.title %></h5>
           <p class="card-text"><%= application.job.duration %></p>
           <p class="card-text"><%= application.job.description.truncate_words(30) %></p>
-          <!-- book an interview -->
-          <p class="card-text"><%= application.status %></p>
         </div>
       </div>
     <% end %>
-  </ul>
 
-  <div class="button-list">
+  <div class="button-list", style="text-align:center">
     <%= link_to "Go back to internships", jobs_path %>
   </div>
 
 </div>
+<br>
 
 <div class="container">
   <div>
