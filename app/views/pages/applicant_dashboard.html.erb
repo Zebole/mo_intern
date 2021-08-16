@@ -18,8 +18,10 @@
       </div>
     <% end %>
 
-  <div class="button-list", style="text-align:center">
-    <%= link_to "Go back to internships", jobs_path %>
+<br>
+
+  <div style="text-align:center">
+    <%= link_to "Go back to internships", jobs_path, class: "btn btn-primary" %>
   </div>
 
 </div>
@@ -37,7 +39,19 @@
     </ul>
     <%= link_to "Add a qualification", new_user_qualification_path %>
 </div>
+<br>
+<div class="container">
+  <div>
+    <h3>Previous Experience</h3>
+  </div>
 
+    <ul class="list-dashboard">
+      <% @user_experiences.each do |experience| %>
+        <li><%= experience.previous_experience %></li>
+      <% end %>
+    </ul>
+    <%= link_to "Add previous experience", new_experience_path %>
+</div>
 <br>
 <br>
 

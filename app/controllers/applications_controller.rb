@@ -4,6 +4,10 @@ class ApplicationsController < ApplicationController
     @applications = Application.where(user: current_user)
   end
 
+  def show
+    @application = Application.find(params[:id])
+  end
+
   def create
     @job = Job.find(params[:job_id])
     @application = Application.new
