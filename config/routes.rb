@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
   resources :jobs, except: [:new, :create]
   resources :qualifications, except: [:show, :index]
-  resources :applications, except: [:show, :edit, :update]
+  resources :applications, except: [:edit, :update]
   resources :user_qualifications, only: [:new, :create]
+  resources :experiences, only: [:new, :create]
   # nest interviews here when time is right
 end

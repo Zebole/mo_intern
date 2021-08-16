@@ -1,31 +1,64 @@
-<h1>Hello there employer dashboard</h1>
+
 
 <div class="container">
+
+<br>
+
   <div>
-    <h3>Jobs posted</h3>
-    <%= @my_count %>
+    <h4 style="text-align:center">You've posted <strong><%= @my_count %></strong> internship</h4>
   </div>
+
+  <% @my_jobs.each do |job|  %>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <h5><%= job.title %></h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= job.description.truncate_words(30)%></p>
+      <div>
+        <p><%= @my_applicants_size %> Applicants </p>
+        <ul>
+          <% @my_applications.each do |applicant| %>
+            <li> <%= link_to applicant.user.first_name, application_path(applicant.id) %> </li>
+          <% end %>
+        </ul>
+      </div>
+      <div style="text-align:center">
+        <%= link_to "View" , job_path(job), class: "btn btn-primary" %>
+        <%= link_to "Remove", job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+<br>
+
+  <div style="text-align:center">
+    <%= link_to "Post an internship", new_organisation_job_path(current_user.organisation), class: "btn btn-primary" %>
+  </div>
+
+<br>
+
   <div>
     <h3>Applicants</h3>
     <%= @my_applicants_size %>
   </div>
-  <div class="buttons-flat">
-    <ul>
-      <li><%= link_to "Post a job", new_organisation_job_path(current_user.organisation) %></li>
-    </ul>
-  </div>
+
   <ul class="list-dashboard">
-    <% @my_jobs.each do |application| %>
-      <li><%= application.title %></li>
-      <li><%= application.description.truncate_words(4) %></li>
-      <li><%= application.category %></li>
-      <li><%= link_to "View job" , job_path(application) %></li>
-      <li><%= link_to "Delete a job", job_path(application), method: :delete, data: { confirm: "Are you sure?" }%></li>
-      <!-- list applicants -->
-    <% end %>
+        <% @my_jobs.each do |application| %>
+          <li><%= application.title %></li>
+          <li><%= application.description.truncate_words(4) %></li>
+          <li><%= application.category %></li>
+          <li><%= link_to "View job" , job_path(application) %></li>
+          <li><%= link_to "Delete job", job_path(application), method: :delete, data: { confirm: "Are you sure?" }%></li>
+          <!-- list applicants -->
+        <% end %>
   </ul>
+
   <div class="footer">
     <p>Privacy Policy</p>
     <p>About us</p>
   </div>
+
+
 </div>

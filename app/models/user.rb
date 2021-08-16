@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :user_qualifications
   has_many :qualifications, through: :user_qualifications
   has_many :applications
+  has_many :user_experiences
+  has_many :experiences, through: :user_experiences
 end
