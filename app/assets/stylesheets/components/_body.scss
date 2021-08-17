@@ -1,0 +1,78 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: asset-url("7566.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.home .image {
+  width: 45vw;
+}
+
+.home .content h1 {
+  font-size: 3.4rem;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.home .content p {
+  font-size: 1.0rem;
+  color: #666;
+  padding: 1rem 0;
+}
+
+.botton {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  border-radius: 5rem;
+  background: var(--blue);
+  font-size: 1.7rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.botton:hover {
+  transform: scale(1.1);
+}
+
+.heading {
+  padding: 1rem;
+  text-align: center;
+  background: var(--blue);
+  color: #333;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+
+}
+
+.test {
+    background: linear-gradient(
+180deg
+, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 59%, rgba(70, 73, 227, 0.1) 60%, rgba(70, 73, 227, 0.1));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+.features .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.features .box-container .box {
+  flex: 1 1 15rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgba(0,0,0,0.2);
+  margin: 1.0rem;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.features .box-container .box img {
+  height: 10rem;
+
+}
+
+.features .box-container .box p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.features .box-container .box h3 {
+  font-size: 2rem;
+  color: #333;
+  padding-top: 0.8rem;
+}
+
+.features .box-container .box h4 {
+  font-size: 1.6rem;
+  color: #333;
+  padding-top: 0.8rem;
+}
