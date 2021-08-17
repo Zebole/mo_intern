@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :applications, except: [:edit, :update] do
     resources :interviews, only: [:new, :create]
     member do
-      get :accept
+      get :accept, :decline
     end
   end
   resources :user_qualifications, only: [:new, :create]

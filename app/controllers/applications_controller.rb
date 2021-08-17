@@ -28,6 +28,12 @@ class ApplicationsController < ApplicationController
    redirect_to employer_dashboard_path
   end
 
+  def decline
+   @application = Application.find(params[:id])
+   @application.update(status: false)
+   redirect_to employer_dashboard_path
+  end
+
   def destroy
     @application = Application.find(params[:id])
     @application.destroy
