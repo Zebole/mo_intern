@@ -46,7 +46,15 @@ ActiveRecord::Schema.define(version: 2021_08_17_064151) do
     t.index ["user_id"], name: "index_applications_on_user_id"
   end
 
-  create_table "experiences", force: :cascade do |t|
+  create_table "interviews", force: :cascade do |t|
+    t.bigint "application_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "url_room", default: "www.zoom.com"
+    t.index ["application_id"], name: "index_interviews_on_application_id"
+  end
+
+    create_table "experiences", force: :cascade do |t|
     t.string "previous_experience"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -126,6 +134,7 @@ ActiveRecord::Schema.define(version: 2021_08_17_064151) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applications", "jobs"
   add_foreign_key "applications", "users"
+  add_foreign_key "interviews", "applications"
   add_foreign_key "jobs", "organisations"
   add_foreign_key "organisations", "users"
   add_foreign_key "user_experiences", "experiences"
