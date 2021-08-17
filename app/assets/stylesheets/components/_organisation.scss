@@ -1,10 +1,10 @@
-.card-grid {
+.organisation-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
 }
 
-.card-box {
+.organisation-box {
   background-color: white;
   border-radius: 0.5rem;
   border: 0.1rem solid rgba(0,0,0,0.2);
@@ -14,18 +14,27 @@
   text-align: center
 }
 
-.card-logo {
+.organisation-logo {
   height: 12rem;
   padding: 10px;
 }
 
-.card-grid p {
+.organisation-paragraph {
   font-size: 1.2rem;
   color: #666;
-}
-
-.card-paragraph {
   padding: 10px;
   height: 210px;
   margin: 2px;
 }
+
+.card:hover {
+  transition: 0.2s;
+  transform: scale(0.98) translateY(-2px);
+  box-shadow: 1px 2px 2px 1px rgba(240, 240, 240, 0.34);
+}
+
+.card {
+  margin-top: 15px;
+  padding: 5px;
+}
+

@@ -7,7 +7,7 @@
         <%= image_tag 'great.png', height: 200 %>
       <% end %>
     </div>
-    <div> 
+    <div>
      <h1><%= @organisation.name %></h1>
      <%= @organisation.address %><br>
      <%= @organisation.city %><br>
@@ -25,24 +25,50 @@
      <button type="button" class="btn btn-primary">
       <%= link_to "Edit", edit_organisation_path(@organisation), style: "color: white;" %>
      </button>
-   <% end %>   
+   <% end %>
 	 <button type="button" class="btn btn-primary">
     <%= link_to "Back", organisations_path, style: "color: white; text-decoration: none;" %>
    </button>
     <%#= link_to "Destroy", organisation_path(@organisation), method: :delete, data: { confirm: "Are you sure?" } %>
-  </div> 
+  </div>
+ <div class="container mt-5">
+  <h2>Open jobs</h2>
+  <% @organisation.jobs.each do |job| %>
+  <h3>Job title:  <%= job.title %></h3><br>
+  Description: <%= job.description %><br>
+  Salary: <%= job.salary %> -
+  Duration: <%= job.duration %> -
+  Category: <%= job.category %> -
+  Closing date: <%= job.deadline %>
+ <% end %>
+ </div>
+</div>
+<br></br>
+<br></br>
+<div class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>About Us</h3>
+        <p>We are a team of commited young graduates who are helping to connect aspiring job seekers with great employers. We have a history of 15 years. We have had more than 100,000 students using our website to apply for internships.</p>
+      </div>
+      <div class="box">
+        <h3>Follow us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Youtube</a>
+      </div>
+      <div class="box">
+        <h3>Legal</h3>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
 </div>
 
- <div class="container mt-5">
-  <h2>Open jobs</h2><br>
-   <% @organisation.jobs.each do |job| %>
-    <h3>Job title:  <%= job.title %></h3><br>
-    Description: <%= job.description %><br>
-    Salary: <%= job.salary %> -
-    Duration: <%= job.duration %> - 
-    Category: <%= job.category %> - 
-    Closing date: <%= job.deadline %>
-   <% end %>  
- </div>
+
+
+
 
 
