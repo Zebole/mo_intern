@@ -1,43 +1,57 @@
-
 <div class="container">
-
-  <div class="container d-flex align-items-center mt-1 mb-5" style="height:100px; border-radius:6px; background-color: rgb(255, 233, 129);">
-     <div>
-      <%= form_tag organisations_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      style: "width: 900px; border-radius:6px; border:1px;",
-      placeholder: "Find the tribe you belong to"
-      %>
+  <div class="search-bar">
+    <%= form_tag jobs_path, method: :get do %>
+    <div class="d-flex">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find an organisation"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
     </div>
-    <div>
-      <%= submit_tag "Search", class: "px-5 btn btn-primary btn-sm" %>
-      <% end %>
-    </div>  
+    <% end %>
   </div>
-
-  <div class="container d-flex align-items-center mt-3" style="width:900px">
-    <div class="card-grid">
-      <% @organisations.each do |organisation| %>
-      <!--<li>-->
-        <div class="card orga-card" style="width:300px;" >
-          <%#= image_tag 'great.png', height: 200, class: "card-img-top" %>
-          <% if organisation.photo.attached? %>
-             <%= cl_image_tag organisation.photo.key, height: 200, width: 200, crop: :fill %>
-           <% else %>
-             <%= image_tag 'great.png', height: 200, class: "card-img-top" %>
-           <% end %>
-              <div class="card-body">
-                 <p class="card-text">
-                   <%= organisation.description.first(305)+'...' %><br>
-                 </p>
-                <%= link_to "View", organisation_path(organisation), class: "text-center btn btn-primary btn-sm mt-2", style: "width:250px;" %>
-             </div>
-         </div>
+  <div>
+    <h2 class="heading"><span class="test">All Organisations</span></h2>
+  </div>
+  <div class="card-grid">
+    <% @organisations.each do |organisation| %>
+    <div class="card-box">
+      <% if organisation.photo.attached? %>
+        <%= cl_image_tag organisation.photo.key, class: "card-logo"%>
+      <% else %>
+        <%= image_tag 'great.png', class: "card-logo"%>
       <% end %>
-   </div>
- </div>
- <div class="text-right">
-   <%= link_to "Create organisation", new_organisation_path, class: "btn btn-primary btn-sm mt-2" %>
- </div>
+      <div class="card-text">
+        <p><%= organisation.description.truncate(150) %></p>
+      </div>
+      <%= link_to "View", organisation_path(organisation), class: "botton" %>
+    </div>
+    <% end %>
+  </div>
 </div>
+<br></br>
+<br></br>
+
+<div class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>About Us</h3>
+        <p>We are a team of commited young graduates who are helping to connect aspiring job seekers with great employers. We have a history of 15 years. We have had more than 100,000 students using our website to apply for internships.</p>
+      </div>
+      <div class="box">
+        <h3>Follow us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Youtube</a>
+      </div>
+      <div class="box">
+        <h3>Legal</h3>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+</div>
+

@@ -1,17 +1,18 @@
-<div class="container">
-  <div class="image-square">
-    <h1 class="big"><%= @job.title %></h1>
-    <div class="title d-flex justify-content-between">
-      <h3>Category: <%= @job.category %></h3>
-      <h3>Deadline: <%= @job.deadline %></h3>
-      <h3>Duration: <%= @job.duration %></h3>
-      <h3>Salary: Rs <%= @job.salary %>/month</h3>
+
+<div class="container pr-5">
+  <div class="image-full">
+    <div class="banner-area">
+      <h1><%= @job.title %></h1>
+      <h2><%= @job.organisation.name %></h2>
     </div>
   </div>
   <div class="text-simple">
+    <p><span class="about">Job Description</span></p>
+    <p><%= @job.description %></p>
+    <!-- Add image of company using cloudinary-->
     <p><span class="about">About</span></p>
     <p><%= @job.organisation.description %></p>
-    <!-- Add image of company using cloudinary-->
+  </div>
     <div class="photo d-flex justify-content-center my-4">
       <% if @job.photo.attached? %>
         <%= cl_image_tag @job.photo.key, height: 300, width: 400, crop: :fill, class: "border border-light rounded" %>
@@ -19,18 +20,39 @@
        <%= image_tag 'great.png', height: 300 %>
       <% end %>
     </div>
-    <span class="link btn btn-light text-decoration-none"><%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation) %></span>
-    <p><span class="about">Job Description</span></p>
-    <p><%= @job.description %></p>
-  </div>
-  <div class="linking btn btn-light text-decoration-none">
-    <%= link_to "Apply", applications_path(job_id: @job.id), method: :post %>
-  </div>
-  <div class="link btn btn-light text-decoration-none">
-    <%= link_to "Back to job listings", jobs_path %>
-  </div>
-  <div class="footer d-flex justify-content-between">
-    <p>Privacy Policy</p>
-    <p>About us</p>
-  </div>
+    <div class="text-center">
+      <%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation),class: "learn-more-button" %>
+    </div>
+  <br></br>
+  <br></br>
 </div>
+
+<div class="title job-sicky">
+  <p><i class="fas fa-briefcase"></i> <%= @job.category %></p>
+  <p><i class="fas fa-hourglass-end"></i> <%= @job.deadline %></p>
+  <p><i class="fas fa-calendar-week"> </i> <%= @job.duration %></p>
+  <p><i class="fas fa-money-bill"> </i> Rs <%= @job.salary %>/month</p>
+  <%= link_to "Apply", applications_path(job_id: @job.id), method: :post, class: "new-botton" %>
+</div>
+
+<div class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>About Us</h3>
+        <p>We are a team of commited young graduates who are helping to connect aspiring job seekers with great employers. We have a history of 15 years. We have had more than 100,000 students using our website to apply for internships.</p>
+      </div>
+      <div class="box">
+        <h3>Follow us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Youtube</a>
+      </div>
+      <div class="box">
+        <h3>Legal</h3>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </div>
