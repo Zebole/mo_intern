@@ -24,7 +24,11 @@
         <li class="nav-item dropdown">
           <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1623952841/ocpazuh6yvnpyvu5ew1r.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My Dashboard", applicant_dashboard_path, class: "dropdown-item" %>
+            <% if current_user.role == "Applicant" %>
+              <%= link_to "My Dashboard", applicant_dashboard_path, class: "dropdown-item" %>
+            <% else %>
+              <%= link_to "My Dashboard", employer_dashboard_path, class: "dropdown-item" %>
+            <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
