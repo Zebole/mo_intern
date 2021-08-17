@@ -13,13 +13,25 @@ class ApplicationsController < ApplicationController
     @application = Application.new
     @application.job = @job
     @application.user = current_user
-    raise
+    # raise
     if @application.save
       flash[:notice] = "Your application has been submitted"
     else
       flash[:alert] = "Sorry there was an error"
     end
     redirect_to jobs_path
+  end
+
+  def accept
+   @application = Application.find(params[:id])
+   @application.update(status: true)
+   redirect_to employer_dashboard_path
+  end
+
+  def decline
+   @application = Application.find(params[:id])
+   @application.update(status: false)
+   redirect_to employer_dashboard_path
   end
 
   def destroy

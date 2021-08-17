@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-header d-flex justify-content-between">
           <h5><%= application.job.organisation.name%></h5>
-          <h5><%= application.status %>Pending</h5>
+          <h5><%= application.status.nil? ? "Pending" : (application.status ? "Accepted" : "Declined") %></h5>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= application.job.title %></h5>

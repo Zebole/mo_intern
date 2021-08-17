@@ -25,4 +25,14 @@
       <li> <%= experience.previous_experience %> </li>
         <% end %>
     </ul>
+
+    <div style='text-align:center'>
+      <% if @application.status.nil? %>
+        <%= link_to "Accept Application", accept_application_path(@application)  %>
+        <%= link_to "Decline Application", decline_application_path(@application)  %>
+      <% end %>
+    </div>
+
 </div>
+
+<%= @application.status %>
