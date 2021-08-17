@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-
-
   def edit
     @user = User.find(params[:id])
   end
@@ -13,6 +11,10 @@ class UsersController < ApplicationController
     redirect_to applicant_dashboard_path
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+  
   private
 
   def user_params

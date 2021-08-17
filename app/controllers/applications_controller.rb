@@ -14,6 +14,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
     @application.job = @job
     @application.user = current_user
+    raise
     if @application.save
       redirect_to jobs_path
     else

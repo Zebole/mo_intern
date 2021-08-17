@@ -1,0 +1,42 @@
+<div class="title-wrapper">
+  <div class="container">
+    <h1 class="title">Interview</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div 
+    class="twilio-video" 
+    data-sid="<%= ENV["TWILIO_ACCOUNT_SID"] %>" 
+    data-room="<%= @interview.url_room %>" 
+    data-token="<%= @token %>"
+    >
+
+    <div class="row justify-content-between">
+      <div class="col-7">
+        <div class="participant">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="remote-media-div text-center">
+          <video id="userVideo" autoplay muted="true" ></video>
+          <div>
+            <button id='leave-btn' class='btn btn-primary mt-3'> 
+              Quit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+      <p class="text-center">
+        Interviewee
+        <!--<%#= @interview.booker == current_user ? @booking.proposal.proposer.email : @booking.booker.email %>-->
+      </p>
+      </div>
+    </div>
+    <%= link_to '', root_path, class: 'd-none root-link', data: {turbolinks: false}  %>
+
+  </div>
+</div>
