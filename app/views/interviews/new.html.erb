@@ -1,16 +1,6 @@
- <div class="container">
- 
-<div>
-  <h1>Book interview for application <%= params %> </h1>
+
+<div class="container">
+  <h1>Create an interview</h1>
+  <%= render 'form', interview: Interview.new %>
+  <!--<%#= link_to "Back to applications", application_dashboard_path %>--> 
 </div>
-
-
-
-<div>
- <!-- <%#= simple_form_for @interview do |f| %>
-    <%#=f.input :interview_date, as: :date%>
-    <%#=f.submit "Book", class: "btn btn-primary" %>
-  <% end %>-->
-</div>
-
-<%= link_to "Back to applications", applicant_dashboard_path %>

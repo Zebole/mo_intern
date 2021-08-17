@@ -17,6 +17,12 @@
 }
 
 .remote-media-div {
+  border-radius: 16px;
+  overflow: hidden;
+  video {
+    border-radius: 16px;
+    width: 100%;
+  }
 }
 
 #userVideo {
