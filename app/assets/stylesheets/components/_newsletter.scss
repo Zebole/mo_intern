@@ -1,0 +1,59 @@
+.newsletter {
+  text-align: center;
+  padding: 5rem 1rem;
+  background-image: asset-url("sk.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.newsletter h3 {
+  color: #333;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.newsletter p {
+  color: black;
+  font-size: 1.3rem;
+  margin: 1.3rem;
+}
+
+.newsletter form {
+  display: flex;
+  max-width: 70rem;
+  border: 0.2rem solid #fff;
+  padding: 0.5rem;
+  border-radius: 5rem;
+  margin: 3rem auto;
+  height: 3.5rem;
+}
+
+.newsletter form input[type="email"] {
+  padding: 0 2rem;
+  font-size: 1.7rem;
+  background: none;
+  width: 100%;
+  color: black;
+  text-transform: none;
+}
+
+.newsletter form input[type="email"]::placeholder {
+  color: black;
+  text-transform: capitalize;
+}
+
+.newsletter form input[type="submit"] {
+  background: none;
+  width: 20rem;
+  font-size: 1.7rem;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+.newsletter form input[type="value"] {
+  margin-bottom: 2px;
+}
+
+
+
+

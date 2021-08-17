@@ -1,0 +1,53 @@
+.review .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.review .box-container .box {
+  background: #fff;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
+  flex: 1 1 10rem;
+  position: relative;
+}
+
+.review .box-container .box .fa-quote-right {
+  position: absolute;
+  top: 1rem; right:1rem ;
+  color: var(--blue);
+  opacity: 0.3;
+}
+
+
+.headshot {
+  border-radius: 10px;
+  height: 7rem;
+  width: 7rem;
+  object-fit: cover;
+  margin-top: 2rem;
+}
+
+.review .box-container .box .user h3 {
+  color: var(--blue);
+  font-size: 2rem;
+
+}
+
+.review .box-container .box .user .stars i {
+  color: var(--orange);
+  font-size: 1.4rem;
+  padding: 1rem 0;
+}
+
+.review .box-container .box .comment {
+  color: #666;
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+
+
+
