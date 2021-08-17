@@ -22,7 +22,7 @@
       <% else %>
         <%= image_tag 'great.png', class: "card-logo"%>
       <% end %>
-      <div class="card-text">
+      <div class="card-paragraph">
         <p><%= organisation.description.truncate(150) %></p>
       </div>
       <%= link_to "View", organisation_path(organisation), class: "botton" %>
