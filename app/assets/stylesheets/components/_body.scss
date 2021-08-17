@@ -25,16 +25,55 @@
 
 .botton {
   display: inline-block;
-  padding: 0.25rem 1rem;
+  padding: 0.1rem 2.5rem;
   border-radius: 5rem;
   background: var(--blue);
   font-size: 1.7rem;
   color: white;
   cursor: pointer;
   transition: 0.2s linear;
+  text-decoration: none;
+}
+
+.new-botton {
+  display: inline-block;
+  padding: 0.4rem 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--blue);
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s linear;
+  text-decoration: none;
 }
 
 .botton:hover {
+  color: #fff;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.new-botton:hover {
+  color: #fff;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.learn-more-button {
+  text-align: center;
+  border-radius: 1.0rem;
+  color: #fff;
+  padding: 0.4rem 1.5rem;
+  background: var(--blue);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.2s linear;
+  text-decoration: none;
+}
+
+.learn-more-button:hover {
+  color: #fff;
+  text-decoration: none;
   transform: scale(1.1);
 }
 
