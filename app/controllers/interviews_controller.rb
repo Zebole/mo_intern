@@ -5,10 +5,10 @@ class InterviewsController < ApplicationController
   end
 
   def create
+    @application = Application.find(params[:application_id])
     @interview = Interview.new(params[:id])
-    @application = @interview.application
     if @interview.save
-      redirect_to interview_path(@interview)
+      redirect_to application_interviews_path(@interview)
     else
       render :new
     end
