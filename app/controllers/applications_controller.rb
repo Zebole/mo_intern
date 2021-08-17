@@ -21,6 +21,12 @@ class ApplicationsController < ApplicationController
     redirect_to jobs_path
   end
 
+  def accept
+   @application = Application.find(params[:id])
+   @application.update(status: true)
+   redirect_to employer_dashboard_path
+  end
+
   def destroy
     @application = Application.find(params[:id])
     @application.destroy
