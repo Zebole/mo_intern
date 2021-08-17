@@ -9,6 +9,9 @@
         <div class="card-header d-flex justify-content-between">
           <h5><%= application.job.organisation.name%></h5>
           <h5><%= application.status.nil? ? "Pending" : (application.status ? "Accepted" : "Declined") %></h5>
+          <% if application.status %>
+            <%= link_to "Book interview", new_application_interview_path(application.id), class: "btn btn-primary" %>
+          <% end %>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= application.job.title %></h5>

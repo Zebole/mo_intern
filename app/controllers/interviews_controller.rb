@@ -5,6 +5,7 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(params[:id])
+    @application = @interview.application
     if @interview.save
       redirect_to interview_path(@interview)
     else
@@ -34,5 +35,6 @@ class InterviewsController < ApplicationController
     token.to_jwt
   end
 end
+
 
  
