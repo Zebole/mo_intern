@@ -10,10 +10,11 @@ class JobsController < ApplicationController
       OR organisations.city @@ :query \
       OR jobs.title @@ :query \
       "
-      @jobs = Job.joins(:organisation).where(sql_query, query: "%#{params[:query]}%")
+      @jobs = Job.joins(:organisation).where(sql_query, query: "%#{params[:query]}%").reject { |job| Application.find_by(job: job, user: current_user) }
     else
-      @jobs = Job.all
+      @jobs = Job.all.reject { |job| Application.find_by(job: job, user: current_user) }
     end
+
   end
 
   def show
