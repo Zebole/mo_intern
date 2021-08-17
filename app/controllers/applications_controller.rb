@@ -13,7 +13,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new
     @application.job = @job
     @application.user = current_user
-    raise
+    # raise
     if @application.save
       flash[:notice] = "Your application has been submitted"
     else

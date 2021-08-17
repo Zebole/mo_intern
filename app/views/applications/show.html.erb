@@ -26,3 +26,9 @@
         <% end %>
     </ul>
 </div>
+
+<% if @application.status.nil? %>
+  <%= link_to "Accept", accept_application_path(@application)  %>
+<% end %>
+
+<%= @application.status %>
