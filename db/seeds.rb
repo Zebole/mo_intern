@@ -10,6 +10,7 @@ UserExperience.destroy_all
 Experience.destroy_all
 UserQualification.destroy_all
 Qualification.destroy_all
+Application.destroy_all
 Job.destroy_all
 Organisation.destroy_all
 User.destroy_all
