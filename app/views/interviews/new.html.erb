@@ -1,4 +1,16 @@
  <div class="container">
-  <h2>Your interview for <%= @job.title %> at <%= @job.organisation.name %> has been booked.</h2>
-   <%= link_to "Back to applications", applicant_dashboard_path %>
+ 
+<div>
+  <h1>Book interview for application <%= params %> </h1>
 </div>
+
+<%= @interview  %>
+
+<div>
+  <%= simple_form_for @interview do |f| %>
+    <%=f.input :interview_date, as: :date%>
+    <%=f.submit "Book", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<%= link_to "Back to applications", applicant_dashboard_path %>
