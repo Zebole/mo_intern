@@ -32,7 +32,9 @@
   <p><i class="fas fa-hourglass-end"></i> <%= @job.deadline %></p>
   <p><i class="fas fa-calendar-week"> </i> <%= @job.duration %></p>
   <p><i class="fas fa-money-bill"> </i> Rs <%= @job.salary %>/month</p>
-  <%= link_to "Apply", applications_path(job_id: @job.id), method: :post, class: "new-botton" %>
+  <% if current_user.role == "Applicant" %>
+    <%= link_to "Apply", applications_path(job_id: @job.id), method: :post, class: "new-botton" %>
+  <% end %>
 </div>
 
 <div class="footer">
