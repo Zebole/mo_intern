@@ -1,0 +1,28 @@
+<div class="container">
+  <br>
+  <div>
+    <h3><%= @application.user.first_name %> <%= @application.user.last_name %></h3>
+  </div>
+
+    <ul>
+       <pe> Address : <%= @application.user.address %> - <%= @application.user.city %></pe>
+       <br>
+       <pe> Phone Number : <%= @application.user.phone_number %></pe>
+       <br>
+       <pe> Date of birth : <%= @application.user.date_of_birth %></pe>
+       <br>
+       <pe> Email : <%= @application.user.email %></pe>
+       <br>
+    </ul>
+
+  <div>
+    <h3>Previous experience</h3>
+  </div>
+
+
+    <ul>
+      <% @application.user.experiences.each do |experience| %>
+      <li> <%= experience.previous_experience %> </li>
+        <% end %>
+    </ul>
+</div>

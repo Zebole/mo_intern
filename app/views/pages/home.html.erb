@@ -1,32 +1,128 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner1.jpg" %>);">
-  <div class="container">
-    <h1>Your <strong>internship</strong> is <strong>one click away</strong>!</h1>
-    <br>
-    <p>Join our community to explore internships from more than 1000 companies!</p>
-    <br>
-    <a class="btn btn-flat" href="#">Explore Internships</a>
-  </div>
-</div>
-<br>
-<br>
-
-<div class="container">
-<h2 class="home-h2">Explore Jobs</h2>
-<br>
-  <% @jobs.first(3).each do |job|  %>
-  <div class="card">
-    <div class="card-header d-flex justify-content-between">
-      <h5><%= job.organisation.name%></h5>
-      <h5><%= job.organisation.city %></h5>
+<body>
+  <section class="home" id= "home">
+    <div class="content">
+      <h1>Your internship is one click away</h1>
+      <p>Join our community of 100,000+ applicants. Our applicants have been able to secure great internships at Forture 500 companies based in Mauritius. Learn, Grow and Succeed with us</p>
+      <%= link_to "View all", jobs_path, class: "botton" %>
     </div>
-    <div class="card-body">
-      <h5 class="card-title"><%= job.title %></h5>
-      <p class="card-text"><%= job.description.truncate_words(30)%></p>
-      <%= link_to "👉 Apply", new_application_path(job_id: job.id), class: "btn btn-primary" %>
-      <%= link_to "🔍 View", job_path(job), class: "btn btn-primary" %>
+    <div class="image">
+      <%= image_tag "7566.jpg", height: 500%>
+    </div>
+  </section>
+  <section class="features">
+    <h3 class="heading"><span class="test">Featured Internships</span></h3>
+    <div class="box-container">
+      <div class="box">
+        <%= image_tag "kpmg-logo.png", class: "logo" %>
+        <h3>Finance Intern</h3>
+        <h4>Port-Louis</h4>
+        <p>We are looking for a high energy, results-driven, team-oriented Finance Intern to join our rapidly growing Finance Team! In this role, you will have the great challenge of optimizing the...</p>
+        <%= link_to "View", job_path(Job.find_by(title: "Finance Intern")), class: "botton" %>
+      </div>
+      <div class="box">
+        <%= image_tag "deloitte-logo.png", class: "logo" %>
+        <h3>Marketing Intern</h3>
+        <h4>Port-Louis</h4>
+        <p>We are looking for talented people who are willing to build the most amazing rewards experience for consumers while keeping growing their own skills and expertise. As Marketing & Communication...</p>
+        <%= link_to "View", job_path(Job.find_by(title: "Marketing Intern")), class: "botton" %>
+      </div>
+      <div class="box">
+        <%= image_tag "sbm-logo.png", class: "logo" %>
+        <h3>Accounting Intern</h3>
+        <h4>Ebene</h4>
+        <p>You will participate in the reorganisation of the reporting system and in particular the integration of foreign subsidiaries with a timetable to be respected. You will provide support to the...</p>
+        <%= link_to "View", job_path(Job.find_by(title: "Accounting Intern")), class: "botton" %>
+      </div>
+    </div>
+  </section>
+  <div class="newsletter">
+    <h3>Subscribe for new job alerts</h3>
+    <p>Get alerted whenever a new job based on your preferences is posted</p>
+    <form action="">
+      <input type="email" placeholder="enter your email">
+      <input type="submit" value="Subscribe">
+    </form>
+  </div>
+   <section class="review">
+    <h1 class="heading"><span class="test">Reviews</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <i class="fas fa-quote-right"></i>
+        <div class="user">
+          <%= image_tag "p1.jpg", class: "headshot"%>
+          <h3>Shaina Chaaya</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="comment">
+            Mo-Intern has been really helpful to me.
+            They helped me find an internship in less than 3 weeks.
+            I am forever grateful❤️❤️❤️
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <i class="fas fa-quote-right"></i>
+        <div class="user">
+          <%= image_tag "p3.jpg", class: "headshot"%>
+          <h3>Franco Domney</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="comment">
+            Mo-Intern is the best internship website for me.💥💯
+            There are always so many choices there.🤗
+            From Marketing to Accounting, everybody has a chance to apply.🤑
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <i class="fas fa-quote-right"></i>
+        <div class="user">
+          <%= image_tag "p2.jpg",class: "headshot"%>
+          <h3>Alicia Johnson</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <div class="comment">
+            Mo-Intern has played a huge part in my career.👍🏼
+            I am very grateful❤️
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>About Us</h3>
+        <p>We are a team of commited young graduates who are helping to connect aspiring job seekers with great employers. We have a history of 15 years. We have had more than 100,000 students using our website to apply for internships. We are looking to expand in international markets such as India, UK and France.</p>
+      </div>
+      <div class="box">
+        <h3>Follow us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Youtube</a>
+      </div>
+      <div class="box">
+        <h3>Legal</h3>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
     </div>
   </div>
-  <% end %>
-</div>
+</body>
 
-<%= link_to "employer dashboard", employer_dashboard_path %>

@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @jobs = Job.all
     @organisations = Organisation.all
+    @applications = Application.all
   end
 
   # def dashboard
@@ -13,13 +14,14 @@ class PagesController < ApplicationController
   def employer_dashboard
     @my_jobs = current_user.organisation.jobs
     @my_count = current_user.organisation.jobs.count
-    @my_applications = current_user.organisation.jobs.map { |job| job.applications }
-    @my_applicants_size = current_user.organisation.jobs.map { |job| job.applications }.count
+    @my_applications = current_user.organisation.jobs.map { |job| job.applications }.flatten
+    @my_applicants_size = current_user.organisation.jobs.map { |job| job.applications }.flatten.count
   end
 
   def applicant_dashboard
     @your_applications = current_user.applications
     @your_count = current_user.applications.count
     @user_qualifications = current_user.qualifications
+    @user_experiences = current_user.experiences
   end
 end

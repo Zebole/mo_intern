@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 2021_08_17_054318) do
     t.string "url_room", default: "www.zoom.com"
     t.index ["application_id"], name: "index_interviews_on_application_id"
   end
+  
+    create_table "experiences", force: :cascade do |t|
+    t.string "previous_experience"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
@@ -88,6 +94,15 @@ ActiveRecord::Schema.define(version: 2021_08_17_054318) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_experiences", force: :cascade do |t|
+    t.bigint "experience_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["experience_id"], name: "index_user_experiences_on_experience_id"
+    t.index ["user_id"], name: "index_user_experiences_on_user_id"
+  end
+
   create_table "user_qualifications", force: :cascade do |t|
     t.bigint "qualification_id", null: false
     t.bigint "user_id", null: false
@@ -112,7 +127,6 @@ ActiveRecord::Schema.define(version: 2021_08_17_054318) do
     t.string "city"
     t.integer "phone_number"
     t.date "date_of_birth"
-    t.string "previous_experience"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -123,6 +137,8 @@ ActiveRecord::Schema.define(version: 2021_08_17_054318) do
   add_foreign_key "interviews", "applications"
   add_foreign_key "jobs", "organisations"
   add_foreign_key "organisations", "users"
+  add_foreign_key "user_experiences", "experiences"
+  add_foreign_key "user_experiences", "users"
   add_foreign_key "user_qualifications", "qualifications"
   add_foreign_key "user_qualifications", "users"
 end
