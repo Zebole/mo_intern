@@ -11,7 +11,8 @@ class InterviewsController < ApplicationController
     @application = @interview.application
     @user = current_user
     @interviewer = @application.job.organisation.user
-    @token = generate_token(@interview)
+    raise
+   # @token = generate_token(@interview)
   end
 
   private
