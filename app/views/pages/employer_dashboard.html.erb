@@ -1,5 +1,3 @@
-
-
 <div class="container">
 
   <div class="p-5">
@@ -35,10 +33,8 @@
       </div>
     </div>
   </div>
-
-<br>
-<br>
-
+  <br>
+  <br>
   <% @my_jobs.each do |job|  %>
   <div class="card">
     <div class="card-header d-flex justify-content-between">
@@ -61,35 +57,32 @@
     </div>
   </div>
   <% end %>
-
+</div>
 <br>
 
   <div style="text-align:center">
     <%= link_to "Post an internship", new_organisation_job_path(current_user.organisation), class: "btn btn-primary" %>
   </div>
-
-<br>
-
-  <div>
-    <h3>Applicants</h3>
-    <%= @my_applicants_size %>
-  </div>
-
-  <ul class="list-dashboard">
-        <% @my_jobs.each do |application| %>
-          <li><%= application.title %></li>
-          <li><%= application.description.truncate_words(4) %></li>
-          <li><%= application.category %></li>
-          <li><%= link_to "View job" , job_path(application) %></li>
-          <li><%= link_to "Delete job", job_path(application), method: :delete, data: { confirm: "Are you sure?" }%></li>
-          <!-- list applicants -->
-        <% end %>
-  </ul>
+  <br>
 
   <div class="footer">
-    <p>Privacy Policy</p>
-    <p>About us</p>
-  </div>
-
-
+    <div class="box-container">
+      <div class="box">
+        <h3>About Us</h3>
+        <p>We are a team of commited young graduates who are helping to connect aspiring job seekers with great employers. We have a history of 15 years. We have had more than 100,000 students using our website to apply for internships.</p>
+      </div>
+      <div class="box">
+        <h3>Follow us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Youtube</a>
+      </div>
+      <div class="box">
+        <h3>Legal</h3>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
 </div>
