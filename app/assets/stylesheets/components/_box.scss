@@ -37,3 +37,15 @@
   color: #333;
   padding-top: 0.8rem;
 }
+
+.box-companie img {
+height: 180px;
+      width: auto;
+}
+
+.box-container-companie {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+

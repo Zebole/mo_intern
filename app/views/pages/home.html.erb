@@ -1,48 +1,108 @@
 <body>
-  <section class="home" id= "home">
-    <div class="content">
-      <h1>Your internship is one click away</h1>
-      <p>Join our community of 100,000+ applicants. Our applicants have been able to secure great internships at Forture 500 companies based in Mauritius. Learn, Grow and Succeed with us</p>
-      <%= link_to "View all", jobs_path, class: "botton" %>
-    </div>
-    <div class="image">
-      <%= image_tag "7566.jpg", height: 500%>
-    </div>
-  </section>
+  <div>
+    <section class="home" id= "home">
+      <div class="content">
+        <h1><span class="test">Your internship is one click away</span></h1>
+        <p>Join our community of 100,000+ applicants. Our applicants have been able to secure great internships at Forture 500 companies based in Mauritius. Learn, Grow and Succeed with us</p>
+        <%= link_to "View all", jobs_path, class: "botton" %>
+      </div>
+      <div class="image">
+        <%= image_tag "7511.png", height: 500%>
+      </div>
+    </section>
+  </div><br><br>
+
   <section class="features">
-    <h3 class="heading"><span class="test">Featured Internships</span></h3>
-    <div class="box-container">
-      <div class="box">
+    <h3 class="heading-1"><span class="test">They trust MO-Intern</span></h3><br><br><br>
+    <div class="box-container-companie">
+      <div class="box-companie">
         <%= image_tag "kpmg-logo.png", class: "logo" %>
-        <h3>Finance Intern</h3>
-        <h4>Port-Louis</h4>
-        <p>We are looking for a high energy, results-driven, team-oriented Finance Intern to join our rapidly growing Finance Team! In this role, you will have the great challenge of optimizing the...</p>
-        <%= link_to "View", job_path(Job.find_by(title: "Finance Intern")), class: "botton" %>
       </div>
-      <div class="box">
+      <div class="box-companie">
         <%= image_tag "deloitte-logo.png", class: "logo" %>
-        <h3>Marketing Intern</h3>
-        <h4>Port-Louis</h4>
-        <p>We are looking for talented people who are willing to build the most amazing rewards experience for consumers while keeping growing their own skills and expertise. As Marketing & Communication...</p>
-        <%= link_to "View", job_path(Job.find_by(title: "Marketing Intern")), class: "botton" %>
       </div>
-      <div class="box">
+      <div class="box-companie">
+        <%= image_tag "wagon-logo.png", class: "logo" %>
+      </div>
+      <div class="box-companie">
+        <%= image_tag "ciel-logo.jpg", class: "logo" %>
+      </div>
+      <div class="box-companie">
+        <%= image_tag "logo_MauBank.jpg", class: "logo" %>
+      </div>
+      <div class="box-companie">
         <%= image_tag "sbm-logo.png", class: "logo" %>
-        <h3>Accounting Intern</h3>
-        <h4>Ebene</h4>
-        <p>You will participate in the reorganisation of the reporting system and in particular the integration of foreign subsidiaries with a timetable to be respected. You will provide support to the...</p>
-        <%= link_to "View", job_path(Job.find_by(title: "Accounting Intern")), class: "botton" %>
+      </div>
+      <div class="box-companie">
+        <%= image_tag "ibl-logo.png", class: "logo" %>
+      </div>
+      <div class="box-companie">
+        <%= image_tag "air-mauritius.png", class: "logo" %>
       </div>
     </div>
-  </section>
-  <div class="newsletter">
-    <h3>Subscribe for new job alerts</h3>
-    <p>Get alerted whenever a new job based on your preferences is posted</p>
-    <form action="">
-      <input type="email" placeholder="enter your email">
-      <input type="submit" value="Subscribe">
-    </form>
+  </section><br><br><br><br><br>
+
+
+  <div class="container">
+    <div class="employer-grid">
+      <div class="employer-box">
+        <div class="employer-count">
+          <p>200</p>
+        </div>
+        <div class="employer-paragraph">
+          <p>Internships in Finance</p>
+        </div>
+      </div>
+
+      <div class="employer-box">
+        <div class="employer-count">
+          <p>50</p>
+        </div>
+        <div class="employer-paragraph">
+          <p>Internships in Marketing</p>
+        </div>
+      </div>
+
+      <div class="employer-box">
+        <div class="employer-count">
+          <p>78</p>
+        </div>
+        <div class="employer-paragraph">
+          <p>Internships in Digital</p>
+        </div>
+      </div>
+    </div>
+  </div><br><br><br>
+  <section class="features">
+    <h3 class="heading-1"><span class="test">Latest internships posted on MO-Intern</span></h3><br>
+    <div class="box-container">
+      <% @jobs.each do |job|  %>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <h5><%= job.organisation.name%></h5>
+      <h5><%= job.organisation.city %></h5>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= job.title %></h5>
+      <p class="card-text"><%= job.description.truncate_words(30)%></p>
+      <% if current_user.role == "Applicant" %>
+        <%= link_to "👉 Apply", applications_path(job_id: job.id), method: :post, class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to "🔍 View", job_path(job), class: "btn btn-primary" %>
+    </div>
   </div>
+  <% end %>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
    <section class="review">
     <h1 class="heading"><span class="test">Reviews</span></h1>
     <div class="box-container">
