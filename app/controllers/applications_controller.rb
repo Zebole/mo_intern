@@ -29,6 +29,10 @@ class ApplicationsController < ApplicationController
   def accept
    @application = Application.find(params[:id])
    @application.update(status: true)
+   @interview = Interview.new
+   @interview.application_id = @application.id
+   @interview.interview_date = Date.today
+   @interview.save
    redirect_to employer_dashboard_path
   end
 

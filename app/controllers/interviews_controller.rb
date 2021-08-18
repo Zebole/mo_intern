@@ -1,24 +1,19 @@
 class InterviewsController < ApplicationController
-
   def new
-    @interview = Interview.new
   end
 
   def create
-    @application = Application.find(params[:application_id])
-    @interview = Interview.new(params[:id])
-    if @interview.save
-      redirect_to application_interviews_path(@interview)
-    else
-      render :new
-    end
   end
 
   def show
-    @interview = Interview.find(params[:id])
-    @application = @interview.application
+    # @interview = Interview.find(params[:id])
+    @application = Application.find(params[:id])
+    @interview = Interview.find_by(application: @application.id)
+    @interview.status = true
+    @interview.save
     @user = current_user
-    @token = generate_token(@interview)
+    @interviewer = @application.job.organisation.user
+    #@token = generate_token(@interview)
   end
 
   private
