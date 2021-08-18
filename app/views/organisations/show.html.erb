@@ -35,7 +35,7 @@
           <h5 class="card-title"><%= job.title %></h5>
           <p class="card-text"><%= job.description.truncate_words(30)%></p>
           <% if current_user.role == "Applicant" %>
-            <%= link_to "👉 Apply", applications_path(job_id: job.id), method: :post, class: "btn btn-primary" %>
+            <%= link_to "👉 Apply", applications_path(job_id: job.id, redirect: "organisations"), method: :post, class: "btn btn-primary" %>
           <% end %>
           <%= link_to "🔍 View", job_path(job), class: "btn btn-primary" %>
         </div>

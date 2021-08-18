@@ -19,7 +19,11 @@ class ApplicationsController < ApplicationController
     else
       flash[:alert] = "Sorry there was an error"
     end
-    redirect_to jobs_path
+    if params[:redirect] == "organisations"
+      redirect_to organisations_path
+    else
+      redirect_to jobs_path
+    end
   end
 
   def accept

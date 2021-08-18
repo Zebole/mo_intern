@@ -15,7 +15,7 @@
   </div>
     <div class="photo d-flex justify-content-center my-4">
       <% if @job.photo.attached? %>
-        <%= cl_image_tag @job.photo.key, height: 300, width: 400, crop: :fill, class: "border border-light rounded" %>
+        <%= cl_image_tag @job.photo.key, class: "organisation-job-photo" %>
       <% else %>
        <%= image_tag 'great.png', height: 300 %>
       <% end %>
