@@ -1,8 +1,15 @@
 <div class="container">
-  <br>
-  <div>
-    <h4 style="text-align:center">You've applied to <strong><%= @your_count %></strong> internships</h4>
+  <div class="p-5">
+    <h2 class="heading"> <span class="test">My Applications</span></h2>
+    <p class ="litle-text", style="text-align:center">Find your applications & scheduled interviews. Add your previous experiences and qualifications</p>
   </div>
+  <div class="employer-grid">
+    <div class="employer-box">
+      <div class="employer-count">
+        <p><%= @your_count %></p>
+      </div>
+      <div class="employer-paragraph">
+        <p>Applications</p>
 
     <% @your_applications.each do |application| %>
       <div class="card">
@@ -21,46 +28,87 @@
           <p class="card-text"><%= application.job.description.truncate_words(30) %></p>
         </div>
       </div>
-    <% end %>
+    </div>
 
-<br>
+    <div class="employer-box">
+      <div class="employer-count">
+        <p><%=  @your_status %></p>
+      </div>
+      <div class="employer-paragraph">
+        <p>Pending Status</p>
+      </div>
+    </div>
 
-  <div style="text-align:center">
-    <%= link_to "Go back to internships", jobs_path, class: "btn btn-primary" %>
+    <div class="employer-box">
+      <div class="employer-count">
+        <p>0</p>
+      </div>
+      <div class="employer-paragraph">
+        <p>Interviews</p>
+      </div>
+    </div>
   </div>
-
+  <br></br>
+   <% @your_applications.each do |application| %>
+    <div class="card">
+      <div class="card-header d-flex justify-content-between">
+        <h5><%= application.job.organisation.name%></h5>
+        <h5><%= application.status.nil? ? "Pending" : (application.status ? "Accepted" : "Declined") %></h5>
+        <% if application.status %>
+          <h5><%= link_to "Interview", interview_path(1), class: "btn /btn-primary" %></h5>
+        <% end %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= application.job.title %></h5>
+        <p class="card-text"><%= application.job.duration %></p>
+        <p class="card-text"><%= application.job.description.truncate_words(30) %></p>
+      </div>
+    </div>
+  <% end %>
+  <br></br>
+  <div class="profile-information">
+    <div class="applicant-qualification text-center">
+      <h3>Your qualifications</h3>
+      <ul class="applicant-attributes">
+        <% @user_qualifications.each do |qualification| %>
+          <li><%= qualification.qualification_category %> <%= qualification.qualification_value %></li>
+        <% end %>
+      </ul>
+      <%= link_to "Add a qualification", new_user_qualification_path, class: "btn btn-primary" %>
+    </div>
+    <br></br>
+    <div class="text-center">
+      <h3>Previous Experience</h3>
+        <ul class="applicant-attributes">
+          <% @user_experiences.each do |experience| %>
+            <li><%= experience.previous_experience %></li>
+          <% end %>
+        </ul>
+        <%= link_to "Add previous experience", new_experience_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <br></br>
 </div>
-<br>
-
-<div class="container">
-  <div>
-    <h3>Your qualifications</h3>
-  </div>
-
-    <ul class="list-dashboard">
-      <% @user_qualifications.each do |qualification| %>
-        <li><%= qualification.qualification_category %> <%= qualification.qualification_value %></li>
-      <% end %>
-    </ul>
-    <%= link_to "Add a qualification", new_user_qualification_path %>
+<br></br>
+<br></br>
+<div class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>About Us</h3>
+        <p>We are a team of commited young graduates who are helping to connect aspiring job seekers with great employers. We have a history of 15 years. We have had more than 100,000 students using our website to apply for internships.</p>
+      </div>
+      <div class="box">
+        <h3>Follow us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Youtube</a>
+      </div>
+      <div class="box">
+        <h3>Legal</h3>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
 </div>
-<br>
-<div class="container">
-  <div>
-    <h3>Previous Experience</h3>
-  </div>
-
-    <ul class="list-dashboard">
-      <% @user_experiences.each do |experience| %>
-        <li><%= experience.previous_experience %></li>
-      <% end %>
-    </ul>
-    <%= link_to "Add previous experience", new_experience_path %>
-</div>
-<br>
-<br>
-
-<div class="footer d-flex justify-content-between">
-    <p>Privacy Policy</p>
-    <p>About us</p>
-  </div>

@@ -23,5 +23,6 @@ class PagesController < ApplicationController
     @your_count = current_user.applications.count
     @user_qualifications = current_user.qualifications
     @user_experiences = current_user.experiences
+    @your_status = current_user.applications.where(status: nil).count
   end
 end
