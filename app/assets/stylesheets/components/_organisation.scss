@@ -38,3 +38,39 @@
   padding: 5px;
 }
 
+.organisation-photo {
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.organisation-new {
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
+
+.organisation-link {
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.organisation-link:hover {
+  text-decoration: none;
+}
+
+.organisation-paragraph-new {
+  color: #333;
+  margin: 2px;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}
+
+
+
+
+
+
