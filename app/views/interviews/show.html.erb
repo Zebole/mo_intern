@@ -1,6 +1,6 @@
 <div class="title-wrapper">
   <div class="container">
-    <h1 class="title">Interview</h1>
+    <h1 class=“heading”><span class="test">Remote interviews</span></h1>
   </div>
 </div>
 
@@ -13,17 +13,22 @@
     >
 
     <div class="row justify-content-between">
-      <div class="col-7">
+      <div class="col-4">
         <div class="participant">
+          <p>Interviewee: <%= @user.first_name %> <%= @user.last_name %></p>
+           <!--<video id="userVideo" autoplay muted="true" ></video>-->
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-6">
         <div class="remote-media-div text-center">
+         <p>Interviewer: <%= @user.first_name %> <%= @user.last_name %></p>
           <video id="userVideo" autoplay muted="true" ></video>
           <div>
-            <button id='leave-btn' class='btn btn-primary mt-3'> 
+            <%= link_to "End Call", applicant_dashboard_path(@user), class: "btn btn-primary" %>
+            <!--<button id='leave-btn' class='btn btn-primary mt-3'> 
               Quit
-            </button>
+               link_to "+ Service", my_services_new_path(:account_id => acct.id)
+            </button>-->
           </div>
         </div>
       </div>
@@ -31,7 +36,6 @@
     <div class="row">
       <div class="col-7">
       <p class="text-center">
-        Interviewee
         <!--<%#= @interview.booker == current_user ? @booking.proposal.proposer.email : @booking.booker.email %>-->
       </p>
       </div>

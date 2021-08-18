@@ -1,12 +1,14 @@
 class InterviewsController < ApplicationController
+
   def new
     @interview = Interview.new
   end
 
   def create
+    @application = Application.find(params[:application_id])
     @interview = Interview.new(params[:id])
     if @interview.save
-      redirect_to interview_path(@interview)
+      redirect_to application_interviews_path(@interview)
     else
       render :new
     end
@@ -34,5 +36,6 @@ class InterviewsController < ApplicationController
     token.to_jwt
   end
 end
+
 
  

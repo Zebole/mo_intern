@@ -1,13 +1,6 @@
 <div class="container">
-  <%= simple_form_for @organisation do |f| %>
-    <%= f.input :name, label: 'Company name' %>
-    <%= f.input :address, label: 'Address' %>
-    <%= f.input :city, label: 'City' %>
-    <%= f.input :phone_number, label: 'Telephone' %>
-    <%= f.input :email, label: 'Email' %>
-    <%= f.input :website, label: 'Website:' %>
-    <%= f.input :description, label: 'Details' %>
-    <%= f.input :photo, as: :file %>
+  <%= simple_form_for @interview do |f| %>
+    <%= f.input :date, label: 'Interview date' %>
     <%= f.button :submit %>
   <% end %>
 </div>
