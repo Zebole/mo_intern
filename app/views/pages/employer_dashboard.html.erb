@@ -2,11 +2,42 @@
 
 <div class="container">
 
-<br>
-
-  <div>
-    <h4 style="text-align:center">You've posted <strong><%= @my_count %></strong> internship</h4>
+  <div class="p-5">
+    <h2 class="heading"> <span class="test">My Jobs</span></h2>
+    <p class ="litle-text", style="text-align:center">Find the jobs you posted, scheduled interviews and applicants</p>
   </div>
+
+  <div class="employer-grid">
+    <div class="employer-box">
+      <div class="employer-count">
+        <p><%= @my_applicants_size %></p>
+      </div>
+      <div class="employer-paragraph">
+        <p>Applicants</p>
+      </div>
+    </div>
+
+    <div class="employer-box">
+      <div class="employer-count">
+        <p><%= @my_count %></p>
+      </div>
+      <div class="employer-paragraph">
+        <p>Jobs posted</p>
+      </div>
+    </div>
+
+    <div class="employer-box">
+      <div class="employer-count">
+        <p>4</p>
+      </div>
+      <div class="employer-paragraph">
+        <p>Interviews</p>
+      </div>
+    </div>
+  </div>
+
+<br>
+<br>
 
   <% @my_jobs.each do |job|  %>
   <div class="card">
