@@ -1,6 +1,6 @@
 <div class="title-wrapper">
   <div class="container">
-    <h1>Remote interviews</h1>
+    <h1 class=“heading”><span class="test">Remote interviews</span></h1>
   </div>
 </div>
 
@@ -13,7 +13,7 @@
     >
 
     <div class="row justify-content-between">
-      <div class="col-6">
+      <div class="col-4">
         <div class="participant">
           <p>Interviewee: <%= @user.first_name %> <%= @user.last_name %></p>
            <!--<video id="userVideo" autoplay muted="true" ></video>-->
@@ -24,9 +24,10 @@
          <p>Interviewer: <%= @user.first_name %> <%= @user.last_name %></p>
           <video id="userVideo" autoplay muted="true" ></video>
           <div>
-            <%= link_to "Close", applicant_dashboard_path(@user) %>
+            <%= link_to "End Call", applicant_dashboard_path(@user), class: "btn btn-primary" %>
             <!--<button id='leave-btn' class='btn btn-primary mt-3'> 
               Quit
+               link_to "+ Service", my_services_new_path(:account_id => acct.id)
             </button>-->
           </div>
         </div>
