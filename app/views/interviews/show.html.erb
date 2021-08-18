@@ -21,7 +21,7 @@
       </div>
       <div class="col-6">
         <div class="remote-media-div text-center">
-         <p>Interviewer: <%= @user.first_name %> <%= @user.last_name %></p>
+         <p>Interviewer: <%= @interviewer.first_name %> <%= @interviewer.last_name %></p>
           <video id="userVideo" autoplay muted="true" ></video>
           <div>
             <%= link_to "End Call", applicant_dashboard_path(@user), class: "btn btn-primary" %>
