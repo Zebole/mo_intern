@@ -17,7 +17,7 @@
   <div class="organisation-grid">
     <% @organisations.each do |organisation| %>
     <div class="organisation-box">
-      <% if organisation.photo.attached? %>
+      <% if organisation.photo.attached?%>
         <%= cl_image_tag organisation.photo.key, class: "organisation-logo"%>
       <% else %>
         <%= image_tag 'great.png', class: "organisation-logo"%>
