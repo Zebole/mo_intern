@@ -1,5 +1,4 @@
 class InterviewsController < ApplicationController
-
   def new
   end
 
@@ -7,12 +6,14 @@ class InterviewsController < ApplicationController
   end
 
   def show
-    @interview = Interview.find(params[:id])
-    @application = @interview.application
+    # @interview = Interview.find(params[:id])
+    @application = Application.find(params[:id])
+    @interview = Interview.find_by(application: @application.id)
+    @interview.status = true
+    @interview.save
     @user = current_user
     @interviewer = @application.job.organisation.user
-    raise
-   # @token = generate_token(@interview)
+    #@token = generate_token(@interview)
   end
 
   private
