@@ -10,7 +10,7 @@
           <h5><%= application.job.organisation.name%></h5>
           <h5><%= application.status.nil? ? "Pending" : (application.status ? "Accepted" : "Declined") %></h5>
           <% if application.status %>
-            <%= link_to "Interview", interview_path(application_id: application.id), method: :post, class: "btn /btn-primary" %>
+            <%= link_to "Interview", interviews_path(1), class: "btn /btn-primary" %>
           <% end %>
         </div>
         <div class="card-body">
