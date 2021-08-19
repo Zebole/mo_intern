@@ -15,32 +15,20 @@
     <h2 class="heading"> <span class="test">All Jobs</span></h2>
   </div>
 
-  <!-- <ul class="cards-job">
-    <% @jobs.each do |job|  %>
-      <li><%= job.title %></li>
-      <li><%= job.organisation.name %></li>
-      <li><%= job.organisation.city %></li>
-      <li><%= job.description.truncate_words(4) %></li>
-      <li><%= job.category%></li>
-      <li><%= link_to "👉 Apply", new_application_path(job_id: job.id)%></li>
-      <li><%= link_to "🔍 View", job_path(job) %></li>
-    <% end %>
-  </ul>
-</div> -->
-
   <% @jobs.each do |job|  %>
-  <div class="card">
-    <div class="card-header d-flex justify-content-between">
-      <h5><%= job.organisation.name%></h5>
-      <h5><%= job.organisation.city %></h5>
+  <div class="card-revised d-flex">
+    <div class="card-revised-new">
+      <h4><%= job.title %></h4>
+      <h5><%= job.organisation.name%>, <%= job.organisation.city %></h5>
+      <p><%= job.description.truncate_words(30)%></p>
+      <p><span id="card-category"><%= job.category%></span></p>
     </div>
-    <div class="card-body">
-      <h5 class="card-title"><%= job.title %></h5>
-      <p class="card-text"><%= job.description.truncate_words(30)%></p>
-      <% if current_user.role == "Applicant" %>
-        <%= link_to "👉 Apply", applications_path(job_id: job.id), method: :post, class: "btn btn-primary" %>
+    <div class="card-revised-link ">
+      <% if current_user && current_user.role == "Applicant" %>
+        <%= link_to "👉 Apply", applications_path(job_id: job.id), method: :post, class: "revised-button" %>
       <% end %>
-      <%= link_to "🔍 View", job_path(job), class: "btn btn-primary" %>
+      <br></br>
+      <%= link_to "🔍 View", job_path(job), class: "revised-button button-green" %>
     </div>
   </div>
   <% end %>
