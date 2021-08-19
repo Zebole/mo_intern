@@ -1,27 +1,32 @@
-<div class="container">
-  <div class="search-bar">
-    <%= form_tag jobs_path, method: :get do %>
-    <div class="d-flex">
+<div class="home-1">
+  <div class="container">
+    <div class="d-flex justify-content-between mt-5 pb-5">
+      <h1 class="content organisation-revised-header"><span class="test">FIND YOUR <br> DREAM INTERNSHIP HERE</span></h1>
+      <%= image_tag 'Group 1.png' %>
+    </div>
+    <div class="search-bar">
+      <%= form_tag jobs_path, method: :get do %>
+      <div class="d-flex">
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Find a job"
+          placeholder: "Find an organisation"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "SEARCH", class: "ml-3 btn btn-primary" %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-  <div>
-    <h2 class="heading"> <span class="test">All Jobs</span></h2>
-  </div>
-
+</div>
+<br></br>
+<div class="container">
   <% @jobs.each do |job|  %>
   <div class="card-revised d-flex">
     <div class="card-revised-new">
       <h4><%= job.title %></h4>
       <h5><%= job.organisation.name%>, <%= job.organisation.city %></h5>
       <p><%= job.description.truncate_words(30)%></p>
-      <p><span id="card-category"><%= job.category%></span></p>
+      <p><span class="card-category"><%= job.category%></span></p>
     </div>
     <div class="card-revised-link ">
       <% if current_user && current_user.role == "Applicant" %>

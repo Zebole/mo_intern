@@ -7,6 +7,16 @@
   min-height: 620px;
 }
 
+.home-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  border-radius: 0% 100% 0% 100% / 42% 0% 100% 58%;
+  min-height:500px;
+  width: 100%;
+}
+
 .home .image {
   width: 45vw;
 }

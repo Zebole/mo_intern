@@ -20,11 +20,12 @@ a:hover {
   margin-top: 25px;
 }
 
-#card-category {
+.card-category {
   background: var(--blue);
   box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
   padding: 8px;
   border-radius: 4px;
+  color: #fff;
 }
 
 .card-revised-view {
@@ -69,7 +70,12 @@ a:hover {
   font-weight: 300;
 }
 
+.card-revised-new h2 {
+  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
+  margin-bottom: 300px;
+}
 
+.interview-button {
 
-
-
+}

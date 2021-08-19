@@ -23,7 +23,7 @@
 
     <div class="employer-box">
       <div class="employer-count">
-        <p>0</p>
+        <p><%= @your_interviews %></p>
       </div>
       <div class="employer-paragraph">
         <p>Interviews</p>
@@ -31,21 +31,20 @@
     </div>
   </div>
   <br></br>
-   <% @your_applications.each do |application| %>
-    <div class="card">
-      <div class="card-header d-flex justify-content-between">
-        <h5><%= application.job.organisation.name%></h5>
-        <h5><%= application.status.nil? ? "Pending" : (application.status ? "Accepted" : "Declined") %></h5>
-           <% if application.interviews.any? && application.interviews.first.status.nil? %>
-              <h5><%= link_to "Interview", interview_path(application.interviews.first.id), class: "btn /btn-primary" %></h5>
-            <% elsif application.status %>
-              <h5>Interviewed</h5>
-            <% end %>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title"><%= application.job.title %></h5>
-        <p class="card-text"><%= application.job.duration %></p>
-        <p class="card-text"><%= application.job.description.truncate_words(30) %></p>
+  <% @your_applications.each do |application| %>
+    <div class="card-revised d-flex">
+      <div class="card-revised-new">
+        <h4><%= application.job.title %></h4>
+        <h5><%= application.job.organisation.name%>, <%= application.job.organisation.city %></h5>
+        <p><%= application.job.description.truncate_words(30) %></p>
+        <div class="d-flex align-items-center">
+          <h5><span class="interview-button card-category"><%= application.status.nil? ? "Pending" : (application.status ? "Accepted" : "Declined") %></span></h5>
+          <% if application.interviews.any? && application.interviews.first.status.nil? %>
+            <h5><%= link_to "Interview", interview_path(application.interviews.first.id), class: " mx-3 revised-button" %></h5>
+          <% elsif application.status %>
+            <h5>Interviewed</h5>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>
