@@ -79,19 +79,20 @@
   <section class="features">
     <h3 class="heading-1 mt-4"><span class="test">Latest internships posted on MO-Intern</span></h3><br>
     <div class="box-container">
-      <% @jobs.each do |job|  %>
-      <div class="card">
-        <div class="card-header d-flex justify-content-between">
-          <h5><%= job.organisation.name%></h5>
-          <h5><%= job.organisation.city %></h5>
+      <% @jobs.last(5).each do |job|  %>
+      <div class="card-revised d-flex">
+        <div class="card-revised-new">
+          <h4><%= job.title %></h4>
+          <h5><%= job.organisation.name%>, <%= job.organisation.city %></h5>
+          <p><%= job.description.truncate_words(30) %></p>
+          <p><span class="card-category"><%= job.category%></span></p>
         </div>
-        <div class="card-body">
-          <h5 class="card-title"><%= job.title %></h5>
-          <p class="card-text"><%= job.description.truncate_words(30)%></p>
+        <div class="card-revised-link">
           <% if current_user && current_user.role == "Applicant" %>
-            <%= link_to "👉 Apply", applications_path(job_id: job.id), method: :post, class: "btn btn-primary" %>
+            <%= link_to "👉 Apply", applications_path(job_id: job.id), method: :post, class: "revised-button" %>
           <% end %>
-          <%= link_to "🔍 View", job_path(job), class: "btn btn-primary" %>
+          <br></br>
+          <%= link_to "🔍 View", job_path(job), class: "revised-button button-green" %>
         </div>
       </div>
       <% end %>
