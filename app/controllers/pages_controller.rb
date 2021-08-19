@@ -16,6 +16,7 @@ class PagesController < ApplicationController
     @my_count = current_user.organisation.jobs.count
     @my_applications = current_user.organisation.jobs.map { |job| job.applications }.flatten
     @my_applicants_size = current_user.organisation.jobs.map { |job| job.applications }.flatten.count
+    @my_interviews = current_user.applications.where(status: true).count
   end
 
   def applicant_dashboard

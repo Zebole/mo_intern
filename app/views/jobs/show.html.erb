@@ -21,7 +21,7 @@
       <% end %>
     </div>
     <div class="text-center">
-      <%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation),class: "learn-more-button" %>
+      <%= link_to "Learn more about #{@job.organisation.name}", organisation_path(@job.organisation),class: "revised-button-no-hover" %>
     </div>
   <br></br>
   <br></br>
@@ -33,7 +33,7 @@
   <p><i class="fas fa-calendar-week"> </i> <%= @job.duration %></p>
   <p><i class="fas fa-money-bill"> </i> Rs <%= @job.salary %>/month</p>
   <% if current_user.role == "Applicant" %>
-    <%= link_to "Apply", applications_path(job_id: @job.id), method: :post, class: "new-botton" %>
+    <%= link_to "Apply", applications_path(job_id: @job.id), method: :post, class: "ml-4 px-4 revised-button-no-hover" %>
   <% end %>
 </div>
 
