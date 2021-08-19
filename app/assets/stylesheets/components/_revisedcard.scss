@@ -91,3 +91,19 @@ a:hover {
   border-radius: 4px;
 }
 
+.prev-exp {
+  list-style: none;
+  width: 1000px;
+}
+
+.revised-button-red {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid red;
+  font-size: 15px;
+  color: red;
+  cursor: pointer;
+  transition: 0.2s linear;
+  cursor: pointer;
+  border-radius: 4px;
+}
