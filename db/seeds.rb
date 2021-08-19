@@ -23,15 +23,8 @@ robert = User.create(first_name: "Robert", last_name: "Bouchet", email:"robert-b
 lisa = User.create(first_name: "Lisa", last_name: "Schneider", email:"lisa.schneider@email.com", password:"123456", role: "Organisation", address: "45, Av. des Jacarandas", city: "Tamarin", phone_number: "54123867", date_of_birth: Date.parse('2002-06-28'))
 marie = User.create(first_name: "Marie", last_name: "Victoire", email:"marie-victoire@email.com", password:"123456", role: "Applicant", address: "1, Queen Mary Avenue", city: "Vacoas-Phoenix", phone_number: "57289800", date_of_birth: Date.parse('2002-12-22'))
 
-experience1 = Experience.create!(previous_experience: "5 months internship at Criteo
-
-- Manage existing relationships to ensure client satisfaction and grow inventory and yield
-- Help onboarding new Retailers and their teams onto the Retail Media platform
-- Set up campaigns for the client in Managed Service mode and train client in Self Service mode
-- Find efficient and optimized solutions to clients operational/technical issues
-- Coordinate with internal teams to ensure seamless integrations and Retailers satisfaction
-- Run thoughtful, data-driven quarterly business reviews.")
-experience2 = Experience.create!(previous_experience: "3 monhts internship at Google")
+experience1 = Experience.create!(previous_experience: "5 months internship at Criteo where I managed existing relationships to ensure client satisfaction and grow inventory. I helped onboard new Retailers and their teams onto the Retail Media platform.")
+experience2 = Experience.create!(previous_experience: "3 monhts internship at Google where I set up campaigns for the client in Managed Service mode and train client in Self Service mode. I also found efficient and optimized solutions to clients operational/technical issues")
 experience3 = Experience.create!(previous_experience: "6 monhts internship at Amazon")
 
 prof1 = UserExperience.create(experience: experience1, user: alex)
