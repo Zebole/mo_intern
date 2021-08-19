@@ -46,7 +46,7 @@
         <p><%= @my_applicants_size %> Applicants </p>
         <ul>
           <% @my_applications.each do |applicant| %>
-            <li> <%= link_to applicant.user.first_name, application_path(applicant.id) %> </li>
+            <li> <%= link_to applicant.user.first_name, application_path(applicant.id) %> <%= link_to "Join interview", interview_path(applicant.interviews.first) if applicant.interviews.any? %> </li>
           <% end %>
         </ul>
       </div>
