@@ -1,19 +1,25 @@
-<div class="container">
-  <div class="search-bar">
-    <%= form_tag organisations_path, method: :get do %>
-    <div class="d-flex">
+
+<div class="home-1">
+  <div class="container">
+    <div class="d-flex justify-content-between mt-5 pb-5">
+      <h1 class="content organisation-revised-header"><span class="test">FIND YOUR <br> DREAM TRIBE HERE</span></h1>
+      <%= image_tag 'Group 1.png' %>
+    </div>
+    <div class="search-bar">
+      <%= form_tag organisations_path, method: :get do %>
+      <div class="d-flex">
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find an organisation"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "SEARCH", class: "ml-3 btn btn-primary" %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-  <div>
-    <h2 class="heading"><span class="test">All Organisations</span></h2>
-  </div>
+</div>
+<div class="container">
   <div class="organisation-grid">
     <% @organisations.each do |organisation| %>
     <div class="organisation-box">
@@ -54,4 +60,6 @@
       </div>
     </div>
 </div>
+
+
 
