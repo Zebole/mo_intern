@@ -1,6 +1,10 @@
+button {
+  background-color: transparent;
+}
+
 a:hover {
   text-decoration:none !important;
-  transform: scale(1.1) !important;
+  // transform: scale(1.1) !important;
 }
 
 .card-revised {
@@ -41,6 +45,7 @@ a:hover {
   cursor: pointer;
   transition: 0.2s linear;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .revised-botton:hover {
@@ -76,6 +81,13 @@ a:hover {
   margin-bottom: 300px;
 }
 
-.interview-button {
-
+.revised-button-no-hover {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #167ffb;
+  font-size: 15px;
+  color: #167ffb;
+  cursor: pointer;
+  border-radius: 4px;
 }
+

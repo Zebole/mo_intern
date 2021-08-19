@@ -1,10 +1,8 @@
 <div class="container">
-
   <div class="p-5">
     <h2 class="heading"> <span class="test">My Jobs</span></h2>
     <p class ="litle-text", style="text-align:center">Find the jobs you posted, scheduled interviews and applicants</p>
   </div>
-
   <div class="employer-grid">
     <div class="employer-box">
       <div class="employer-count">
@@ -14,7 +12,6 @@
         <p>Applicants</p>
       </div>
     </div>
-
     <div class="employer-box">
       <div class="employer-count">
         <p><%= @my_count %></p>
@@ -23,10 +20,9 @@
         <p>Jobs posted</p>
       </div>
     </div>
-
     <div class="employer-box">
       <div class="employer-count">
-        <p>4</p>
+        <p><%= @my_interviews %></p>
       </div>
       <div class="employer-paragraph">
         <p>Interviews</p>
@@ -34,23 +30,18 @@
     </div>
   </div>
   <br>
-
   <br>
   <% @my_jobs.each do |job|  %>
-  <div class="card no-hover">
-    <div class="card-header d-flex justify-content-between">
-      <h5><%= job.title %></h5>
+  <div class="card-revised">
+    <div class="card-revised-new">
+      <h4><%= job.title %></h4>
+      <p><%= job.description.truncate_words(30)%></p>
     </div>
-    <div class="card-body">
-      <p class="card-text"><%= job.description.truncate_words(30)%></p>
-
-
-
+    <div class="d-flex justify-content-center">
       <!-- Button trigger modal -->
-      <button type="button" class="revised-button" data-toggle="modal" data-target="#job-<%= job.id %>">
+      <button type="button" class="mr-2 revised-button" data-toggle="modal" data-target="#job-<%= job.id %>">
         🎓 See Applicants
       </button>
-
       <!-- Modal -->
       <div class="modal fade" id="job-<%= job.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -64,39 +55,30 @@
             <div class="modal-body">
                   <div class="list-applicants w-100">
                   <% job.applications.each do |applicant| %>
-                  <div class="d-flex justify-content-between">
+                  <div class="d-flex justify-content-between align-items-center">
                     <span><%= applicant.user.first_name %></span>
-                    <span><%= link_to " 📷 Join interview", interview_path(applicant.interviews.first) if applicant.interviews.any? %></span>
-                    <span><%= link_to " 🔎 Voir le profil", application_path(applicant.id) %></span>
+                    <span class="revised-button-no-hover"><%= link_to " 📷 Join interview", interview_path(applicant.interviews.first) if applicant.interviews.any? %></span>
+                    <span><%= link_to " 🔎 Voir le profil", application_path(applicant.id), class: "revised-button-no-hover"  %></span>
                   </div>
                   <% end %>
                 </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
           </div>
         </div>
       </div>
-
-
-
-      <div style="text-align:center">
-        <%= link_to "View" , job_path(job), class: "btn btn-primary" %>
-        <%= link_to "Remove", job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%>
+      <div>
+        <%= link_to "View" , job_path(job), class: "px-4 revised-button-no-hover" %>
+        <%= link_to "Remove", job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "revised-button-no-hover"%>
       </div>
     </div>
   </div>
   <% end %>
-</div>
-<br>
-
+  </div>
+  <br>
   <div style="text-align:center">
     <%= link_to "Post an internship", new_organisation_job_path(current_user.organisation), class: "btn btn-primary" %>
   </div>
   <br>
-
   <div class="footer">
     <div class="box-container">
       <div class="box">
