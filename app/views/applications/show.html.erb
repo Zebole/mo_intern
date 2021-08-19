@@ -5,7 +5,7 @@
   </div> -->
   <br>
   <div class="d-flex">
-      <%= image_tag 'Tiago.jpg', class: "organisation-photo"%>
+      <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1623952841/ocpazuh6yvnpyvu5ew1r.jpg", class: "organisation-photo"%>
     <div class="organisation-paragraph organisation-new">
        <strong><%= @application.user.first_name %> <%= @application.user.last_name %></strong><br><br>
        Address : <%= @application.user.address %> - <%= @application.user.city %><br>
@@ -15,22 +15,37 @@
     </div>
   </div>
 
-  <div>
-    <h3 class="heading-1"> <span class="test"> Previous experience</span></h3>
-  </div>
+  <div class="profile-information">
+    <div>
+      <h3 class="heading-1"> <span class="test"> Qualifications</span></h3>
+    </div>
+    <div class="text-center">
+       <ul class="applicant-attributes">
+          <% @application.user.qualifications.each do |qualification| %>
+            <li><%= qualification.qualification_category %> <%= qualification.qualification_value %></li>
+          <% end %>
+        </ul>
+    </div>
 
-    <ul class="text-simple">
-      <% @application.user.experiences.each do |experience| %>
-      <li> <%= experience.previous_experience %> </li>
-        <% end %>
-    </ul>
+    <div>
+      <h3 class="heading-1"> <span class="test"> Previous experience</span></h3>
+    </div>
+    <div>
+        <ul class="text-simple prev-exp text-center">
+          <% @application.user.experiences.each do |experience| %>
+          <li> <%= experience.previous_experience %> </li>
+            <% end %>
+        </ul>
+    </div>
 
     <div style='text-align:center'>
       <% if @application.status.nil? %>
-        <%= link_to "Accept Application", accept_application_path(@application)  %>
-        <%= link_to "Decline Application", decline_application_path(@application)  %>
+        <%= link_to "Accept Application", accept_application_path(@application), class: "revised-button"  %>
+        <%= link_to "Decline Application", decline_application_path(@application), class: "revised-button-red"  %>
       <% end %>
     </div>
+  </div>
+
 </div>
 
 <%= @application.status %>
