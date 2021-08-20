@@ -25,6 +25,8 @@ marie = User.create(first_name: "Marie", last_name: "Victoire", email:"marie-vic
 basile = User.create(first_name: "Basile", last_name: "Marque", email:"basile.m@email.com", password:"123456", role: "Organisation", address: "45, Av. des Jacarandas", city: "Tamarin", phone_number: "54123867", date_of_birth: Date.parse('2002-06-28'))
 gael = User.create(first_name: "Gael", last_name: "Joseph", email:"gael.j@email.com", password:"123456", role: "Organisation", address: "45, Av. des Jacarandas", city: "Tamarin", phone_number: "54123867", date_of_birth: Date.parse('2002-06-28'))
 alain = User.create(first_name: "Alain", last_name: "Noel", email:"alain.n@email.com", password:"123456", role: "Organisation", address: "45, Av. des Jacarandas", city: "Tamarin", phone_number: "54123867", date_of_birth: Date.parse('2002-06-28'))
+alexi = User.create(first_name: "Alexi", last_name: "Hardy", email:"alexi.h@email.com", password:"123456", role: "Organisation", address: "45, Av. des Jacarandas", city: "Tamarin", phone_number: "54123867", date_of_birth: Date.parse('2002-06-28'))
+
 
 experience1 = Experience.create!(previous_experience: "5 months internship at Criteo where I managed existing relationships to ensure client satisfaction and grow inventory. I helped onboard new Retailers and their teams onto the Retail Media platform.")
 experience2 = Experience.create!(previous_experience: "3 monhts internship at Google where I set up campaigns for the client in Managed Service mode and train client in Self Service mode. I also found efficient and optimized solutions to clients operational/technical issues")
@@ -78,7 +80,7 @@ LeWagon = Organisation.create(name: "Le Wagon", address: "Les Kocottes", city: "
 Our Web Development bootcamp teaches you all the web stack, from the database to the browser. You will learn the core concepts of object-oriented programming, and structure your software following design patterns like MVC. In addition to mastering back-end programming languages (Ruby, SQL), you will develop your front-end skills using recent techniques like flexbox, CSS grid and learn ES6, the latest version of JavaScript.",  user: alain)
 LeWagon.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 file = URI.open('https://brandlogo.diizz.com/storage/thumbnail/20210214151746.ciel-group-vector-logo.jpg')
-Cielgroup = Organisation.create(name: "Ciel Group", address: "La rue poudriere", city: "Port-Louis", phone_number: 4134780, email: "ciel@ciel.com", website: "cielgroup.com", description: "CIEL is an international Mauritian Group present in 10+ emerging markets across Asia and Africa. The Group is present in six strategic sectors, namely Agro, Finance, Healthcare, Hotels & Resorts, Properties and Textile and employs approximately 32,000 talented individuals.",  user: tiago)
+Cielgroup = Organisation.create(name: "Ciel Group", address: "La rue poudriere", city: "Port-Louis", phone_number: 4134780, email: "ciel@ciel.com", website: "cielgroup.com", description: "CIEL is an international Mauritian Group present in 10+ emerging markets across Asia and Africa. The Group is present in six strategic sectors, namely Agro, Finance, Healthcare, Hotels & Resorts, Properties and Textile and employs approximately 32,000 talented individuals.",  user: alexi)
 Cielgroup.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 file = URI.open('https://www.logolynx.com/images/logolynx/3b/3b18fcd781093d3006b49424ca47ad07.png')
