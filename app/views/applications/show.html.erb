@@ -5,7 +5,11 @@
   </div> -->
   <br>
   <div class="d-flex">
+    <% if @application.user.first_name == "Alex" %>
       <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1623952841/ocpazuh6yvnpyvu5ew1r.jpg", class: "organisation-photo"%>
+    <% else %>
+      <%= image_tag "p2.jpg", class: "organisation-photo"%>
+    <% end %>
     <div class="organisation-paragraph organisation-new">
        <strong><%= @application.user.first_name %> <%= @application.user.last_name %></strong><br><br>
        Address : <%= @application.user.address %> - <%= @application.user.city %><br>
